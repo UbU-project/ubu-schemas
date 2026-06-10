@@ -1,8 +1,7 @@
 {
   "id": "task_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
-  "title": "Write validation CLI",
-  "status": "active",
-  "extra": true,
+  "title": "Missing moot reason",
+  "status": "moot",
   "provenance": {
     "created_at": "2026-06-10T14:30:00Z",
     "authority_source": "user"

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/moot-reason-code.schema.json",
+  "title": "Moot Reason Code",
+  "type": "string",
+  "description": "Closed reason code explaining why a persisted task lifecycle status is moot.",
+  "enum": [
+    "externally_satisfied",
+    "superseded",
+    "delegated",
+    "no_longer_relevant",
+    "invalidated_by_universe_change",
+    "replaced_by_new_plan_structure",
+    "user_declared_moot",
+    "automation_obsolete",
+    "duplicate"
+  ]
+}

@@ -3,7 +3,7 @@
   "$id": "https://schemas.ubunow.net/phase1/core/task.schema.json",
   "title": "Task",
   "type": "object",
-  "description": "A Phase 1 unit of work with status, objective linkage, authority, and provenance.",
+  "description": "A Phase 1 unit of work with canonical lifecycle status, objective linkage, authority, and provenance.",
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -18,6 +18,9 @@
     },
     "status": {
       "$ref": "https://schemas.ubunow.net/phase1/core/task-status.schema.json"
+    },
+    "moot_reason_code": {
+      "$ref": "https://schemas.ubunow.net/phase1/core/moot-reason-code.schema.json"
     },
     "objective_id": {
       "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
@@ -38,6 +41,31 @@
       "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
     }
   },
-  "required": ["id", "title", "status", "provenance"]
+  "required": ["id", "title", "status", "provenance"],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": { "const": "moot" }
+        },
+        "required": ["status"]
+      },
+      "then": {
+        "required": ["moot_reason_code"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": { "enum": ["active", "completed", "failed"] }
+        },
+        "required": ["status"]
+      },
+      "then": {
+        "not": {
+          "required": ["moot_reason_code"]
+        }
+      }
+    }
+  ]
 }
-

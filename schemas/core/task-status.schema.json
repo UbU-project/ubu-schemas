@@ -3,7 +3,6 @@
   "$id": "https://schemas.ubunow.net/phase1/core/task-status.schema.json",
   "title": "Task Status",
   "type": "string",
-  "description": "Phase 1 lifecycle status for a task.",
-  "enum": ["proposed", "ready", "blocked", "in_progress", "completed", "canceled"]
+  "description": "Canonical persisted Phase 1 lifecycle status for a task. Readiness and execution states are derived views.",
+  "enum": ["active", "completed", "failed", "moot"]
 }
-

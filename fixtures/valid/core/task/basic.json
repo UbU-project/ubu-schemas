@@ -2,7 +2,7 @@
   "id": "task_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
   "title": "Write validation CLI",
   "description": "Validate valid and invalid fixtures.",
-  "status": "ready",
+  "status": "active",
   "objective_id": "obj_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
   "due_at": "2026-06-11T09:00:00-04:00",
   "provenance": {
@@ -10,4 +10,3 @@
     "authority_source": "user"
   }
 }
-

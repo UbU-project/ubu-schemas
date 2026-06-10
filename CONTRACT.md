@@ -45,6 +45,10 @@ The canonical prefix mapping is defined in `schemas/common/id-registry.schema.js
 
 `user` means direct user authority. `user_override` is reserved for explicit override cases.
 
+## Task Lifecycle
+
+Per `UBU-D0227`, persisted `Task.status` is the canonical lifecycle state and is limited to `active`, `completed`, `failed`, and `moot`. Readiness and execution states are derived views and must not be persisted as canonical task status. A `moot` task requires `moot_reason_code`; non-moot lifecycle states forbid it.
+
 ## Lockstep Coupling
 
 Phase 1 schemas are pre-1.0 and intentionally use `additionalProperties: false` for object contracts where appropriate. This creates lockstep with hand-written `ubu-core` serde types so schema drift fails early in CI and fixture review.
