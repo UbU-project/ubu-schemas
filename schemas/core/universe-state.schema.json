@@ -3,9 +3,12 @@
   "$id": "https://schemas.ubunow.net/phase1/core/universe-state.schema.json",
   "title": "Universe State",
   "type": "object",
-  "description": "A compact collection of active Phase 1 objects for planning or API exchange.",
+  "description": "Canonical Phase 1 UniverseState facts object for planning or API exchange. This is not a snapshot-view placeholder.",
   "additionalProperties": false,
   "properties": {
+    "id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
     "captured_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
@@ -22,6 +25,5 @@
       }
     }
   },
-  "required": ["captured_at", "objectives", "tasks"]
+  "required": ["id", "captured_at", "objectives", "tasks"]
 }
-

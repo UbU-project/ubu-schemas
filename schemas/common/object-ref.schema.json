@@ -11,9 +11,8 @@
     },
     "object_type": {
       "type": "string",
-      "enum": ["Task", "Objective", "Plan", "LogEntry", "ExternalReference", "Compartment", "Snapshot", "AutomationWorker", "ProjectionPreview", "Calendar"]
+      "enum": ["Task", "Objective", "Plan", "LogEntry", "ExternalReference", "Compartment", "Snapshot", "AutomationWorker", "ProjectionPreview", "Calendar", "Preference", "Container", "UniverseState", "Identity", "Relationship", "ExternalEvent"]
     }
   },
   "required": ["id", "object_type"]
 }
-

@@ -6,6 +6,9 @@
   "description": "An event observed from an external source and linked to a source reference.",
   "additionalProperties": false,
   "properties": {
+    "id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
     "source": {
       "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json"
     },
@@ -20,6 +23,5 @@
       "type": "string"
     }
   },
-  "required": ["source", "event_type", "occurred_at"]
+  "required": ["id", "source", "event_type", "occurred_at"]
 }
-

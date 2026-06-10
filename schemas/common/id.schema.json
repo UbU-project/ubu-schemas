@@ -14,7 +14,12 @@
     { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/snapshot_id" },
     { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/automation_worker_id" },
     { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/projection_preview_id" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/calendar_id" }
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/calendar_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/preference_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/container_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/universe_state_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/identity_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/relationship_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/external_event_id" }
   ]
 }
-

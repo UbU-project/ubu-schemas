@@ -6,6 +6,9 @@
   "description": "A stable actor identity used for attribution, without prescribing an authentication system.",
   "additionalProperties": false,
   "properties": {
+    "id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
     "subject_key": {
       "type": "string",
       "minLength": 1
@@ -19,6 +22,5 @@
       "enum": ["person", "service", "automation_worker", "system"]
     }
   },
-  "required": ["subject_key", "kind"]
+  "required": ["id", "subject_key", "kind"]
 }
-

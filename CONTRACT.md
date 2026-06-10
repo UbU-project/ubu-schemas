@@ -27,10 +27,14 @@ UbU IDs are prefixed strings with one `_` delimiter. The suffix is a lowercase, 
 Pattern form:
 
 ```text
-^<prefix>_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$
+^[a-z]+_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$
 ```
 
-The canonical prefix mapping is defined in `schemas/common/id-registry.schema.json`.
+The canonical prefix mapping is defined in `schemas/common/id-registry.schema.json`. Per `UBU-D0229`, Phase 1 includes canonical IDs for Preference, Container, UniverseState, Identity, Relationship, and ExternalEvent in addition to the previously registered object types.
+
+## UniverseState
+
+Per `UBU-D0229`, `schemas/core/universe-state.schema.json` is the canonical Phase 1 UniverseState facts object for planning or API exchange. It is not a snapshot-view placeholder; snapshot views remain represented by `schemas/core/snapshot.schema.json`.
 
 ## Authority Source
 

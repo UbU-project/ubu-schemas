@@ -157,21 +157,105 @@
           "id": { "$ref": "#/$defs/calendar_id" }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "pref_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "object_type": { "const": "Preference" },
+          "id": { "$ref": "#/$defs/preference_id" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "container_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "object_type": { "const": "Container" },
+          "id": { "$ref": "#/$defs/container_id" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "ustate_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "object_type": { "const": "UniverseState" },
+          "id": { "$ref": "#/$defs/universe_state_id" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "identity_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "object_type": { "const": "Identity" },
+          "id": { "$ref": "#/$defs/identity_id" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "rel_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "object_type": { "const": "Relationship" },
+          "id": { "$ref": "#/$defs/relationship_id" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "xevent_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "object_type": { "const": "ExternalEvent" },
+          "id": { "$ref": "#/$defs/external_event_id" }
+        }
+      }
     }
   ],
   "$defs": {
     "uuid_v7_suffix": {
       "type": "string",
-      "description": "Lowercase unhyphenated UUIDv7 suffix, 32 hex characters.",
-      "pattern": "^[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+      "description": "Canonical lowercase alpha prefix and unhyphenated UUIDv7 suffix, with UUID version and variant bits enforced.",
+      "pattern": "^[a-z]+_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
     "allowed_prefix": {
       "type": "string",
-      "enum": ["task_", "obj_", "plan_", "log_", "xref_", "comp_", "snap_", "worker_", "proj_", "cal_"]
+      "enum": ["task_", "obj_", "plan_", "log_", "xref_", "comp_", "snap_", "worker_", "proj_", "cal_", "pref_", "container_", "ustate_", "identity_", "rel_", "xevent_"]
     },
     "object_type": {
       "type": "string",
-      "enum": ["Task", "Objective", "Plan", "LogEntry", "ExternalReference", "Compartment", "Snapshot", "AutomationWorker", "ProjectionPreview", "Calendar"]
+      "enum": ["Task", "Objective", "Plan", "LogEntry", "ExternalReference", "Compartment", "Snapshot", "AutomationWorker", "ProjectionPreview", "Calendar", "Preference", "Container", "UniverseState", "Identity", "Relationship", "ExternalEvent"]
     },
     "task_id": {
       "type": "string",
@@ -213,6 +297,30 @@
       "type": "string",
       "pattern": "^cal_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
+    "preference_id": {
+      "type": "string",
+      "pattern": "^pref_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "container_id": {
+      "type": "string",
+      "pattern": "^container_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "universe_state_id": {
+      "type": "string",
+      "pattern": "^ustate_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "identity_id": {
+      "type": "string",
+      "pattern": "^identity_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "relationship_id": {
+      "type": "string",
+      "pattern": "^rel_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "external_event_id": {
+      "type": "string",
+      "pattern": "^xevent_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
     "any_ubu_id": {
       "oneOf": [
         { "$ref": "#/$defs/task_id" },
@@ -224,9 +332,14 @@
         { "$ref": "#/$defs/snapshot_id" },
         { "$ref": "#/$defs/automation_worker_id" },
         { "$ref": "#/$defs/projection_preview_id" },
-        { "$ref": "#/$defs/calendar_id" }
+        { "$ref": "#/$defs/calendar_id" },
+        { "$ref": "#/$defs/preference_id" },
+        { "$ref": "#/$defs/container_id" },
+        { "$ref": "#/$defs/universe_state_id" },
+        { "$ref": "#/$defs/identity_id" },
+        { "$ref": "#/$defs/relationship_id" },
+        { "$ref": "#/$defs/external_event_id" }
       ]
     }
   }
 }
-

@@ -6,6 +6,9 @@
   "description": "A typed edge between two UbU object references.",
   "additionalProperties": false,
   "properties": {
+    "id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
     "from": {
       "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
     },
@@ -17,6 +20,5 @@
       "minLength": 1
     }
   },
-  "required": ["from", "to", "kind"]
+  "required": ["id", "from", "to", "kind"]
 }
-
