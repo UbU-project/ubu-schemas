@@ -11,7 +11,7 @@
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/planning/skeleton-failure-diagnostic.schema.json" }
     },
-    "policySummary": { "$ref": "https://schemas.ubunow.net/phase1/common/policy-summary.schema.json" }
+    "policy_summary": { "$ref": "https://schemas.ubunow.net/phase1/common/policy-summary.schema.json" }
   },
   "required": ["valid", "diagnostics"]
 }

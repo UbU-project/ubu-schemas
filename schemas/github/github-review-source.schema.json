@@ -6,11 +6,11 @@
   "description": "Imported GitHub pull request review metadata.",
   "additionalProperties": false,
   "properties": {
-    "pullRequest": { "$ref": "https://schemas.ubunow.net/phase1/github/github-pr-source.schema.json" },
-    "reviewId": { "type": "integer", "minimum": 1 },
+    "pull_request": { "$ref": "https://schemas.ubunow.net/phase1/github/github-pr-source.schema.json" },
+    "review_id": { "type": "integer", "minimum": 1 },
     "state": { "type": "string", "minLength": 1 },
-    "submittedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+    "submitted_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
   },
-  "required": ["pullRequest", "reviewId", "state"]
+  "required": ["pull_request", "review_id", "state"]
 }
 

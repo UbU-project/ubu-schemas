@@ -13,10 +13,10 @@
     "value": {
       "type": ["string", "number", "boolean"]
     },
-    "authoritySource": {
+    "authority_source": {
       "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json"
     }
   },
-  "required": ["name", "value", "authoritySource"]
+  "required": ["name", "value", "authority_source"]
 }
 

@@ -7,10 +7,10 @@
   "additionalProperties": false,
   "properties": {
     "source": { "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json" },
-    "checkedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "checked_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "status": { "type": "string", "enum": ["matched", "drifted", "missing"] },
     "notes": { "type": "string" }
   },
-  "required": ["source", "checkedAt", "status"]
+  "required": ["source", "checked_at", "status"]
 }
 

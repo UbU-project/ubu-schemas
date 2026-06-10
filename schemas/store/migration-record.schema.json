@@ -6,12 +6,12 @@
   "description": "Record of a store migration affecting schema-versioned objects.",
   "additionalProperties": false,
   "properties": {
-    "migrationId": { "type": "string", "minLength": 1 },
-    "fromVersion": { "type": "string", "minLength": 1 },
-    "toVersion": { "type": "string", "minLength": 1 },
-    "appliedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "migration_id": { "type": "string", "minLength": 1 },
+    "from_version": { "type": "string", "minLength": 1 },
+    "to_version": { "type": "string", "minLength": 1 },
+    "applied_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "summary": { "type": "string" }
   },
-  "required": ["migrationId", "fromVersion", "toVersion", "appliedAt"]
+  "required": ["migration_id", "from_version", "to_version", "applied_at"]
 }
 

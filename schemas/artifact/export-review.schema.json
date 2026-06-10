@@ -6,11 +6,11 @@
   "description": "Review record for an artifact export package.",
   "additionalProperties": false,
   "properties": {
-    "reviewedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "reviewed_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "reviewer": { "$ref": "https://schemas.ubunow.net/phase1/core/identity.schema.json" },
     "status": { "type": "string", "enum": ["approved", "needs_changes", "blocked"] },
     "notes": { "type": "string" }
   },
-  "required": ["reviewedAt", "reviewer", "status"]
+  "required": ["reviewed_at", "reviewer", "status"]
 }
 

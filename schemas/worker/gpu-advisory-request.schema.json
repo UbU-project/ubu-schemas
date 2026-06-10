@@ -6,12 +6,12 @@
   "description": "Request for advisory GPU capacity or scheduling guidance from an automation worker.",
   "additionalProperties": false,
   "properties": {
-    "requestId": { "type": "string", "minLength": 1 },
-    "requestedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "request_id": { "type": "string", "minLength": 1 },
+    "requested_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "workload": { "type": "string", "minLength": 1 },
-    "estimatedDuration": { "$ref": "https://schemas.ubunow.net/phase1/common/duration.schema.json" },
-    "maxCost": { "$ref": "https://schemas.ubunow.net/phase1/common/money.schema.json" }
+    "estimated_duration": { "$ref": "https://schemas.ubunow.net/phase1/common/duration.schema.json" },
+    "max_cost": { "$ref": "https://schemas.ubunow.net/phase1/common/money.schema.json" }
   },
-  "required": ["requestId", "requestedAt", "workload"]
+  "required": ["request_id", "requested_at", "workload"]
 }
 

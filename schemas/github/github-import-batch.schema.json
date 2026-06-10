@@ -6,17 +6,17 @@
   "description": "A batch of GitHub source records imported together.",
   "additionalProperties": false,
   "properties": {
-    "batchId": { "type": "string", "minLength": 1 },
-    "importedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "batch_id": { "type": "string", "minLength": 1 },
+    "imported_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "issues": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/github/github-issue-source.schema.json" }
     },
-    "pullRequests": {
+    "pull_requests": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/github/github-pr-source.schema.json" }
     }
   },
-  "required": ["batchId", "importedAt"]
+  "required": ["batch_id", "imported_at"]
 }
 

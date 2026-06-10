@@ -6,13 +6,13 @@
   "description": "Request to repair a rejected or invalid plan candidate.",
   "additionalProperties": false,
   "properties": {
-    "requestId": { "type": "string", "minLength": 1 },
+    "request_id": { "type": "string", "minLength": 1 },
     "plan": { "$ref": "https://schemas.ubunow.net/phase1/planning/plan.schema.json" },
     "diagnostics": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/planning/skeleton-failure-diagnostic.schema.json" }
     }
   },
-  "required": ["requestId", "plan", "diagnostics"]
+  "required": ["request_id", "plan", "diagnostics"]
 }
 

@@ -6,12 +6,12 @@
   "description": "Human or delegated approval for a projection preview.",
   "additionalProperties": false,
   "properties": {
-    "previewId": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+    "preview_id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
     "approved": { "type": "boolean" },
-    "approvedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
-    "authoritySource": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
+    "approved_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "authority_source": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
     "note": { "type": "string" }
   },
-  "required": ["previewId", "approved", "approvedAt", "authoritySource"]
+  "required": ["preview_id", "approved", "approved_at", "authority_source"]
 }
 

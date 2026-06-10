@@ -6,10 +6,10 @@
   "description": "Response to a repair request with a repaired plan or remaining diagnostics.",
   "additionalProperties": false,
   "properties": {
-    "requestId": { "type": "string", "minLength": 1 },
-    "repairedPlan": { "$ref": "https://schemas.ubunow.net/phase1/planning/plan.schema.json" },
+    "request_id": { "type": "string", "minLength": 1 },
+    "repaired_plan": { "$ref": "https://schemas.ubunow.net/phase1/planning/plan.schema.json" },
     "validation": { "$ref": "https://schemas.ubunow.net/phase1/planning/validation-result.schema.json" }
   },
-  "required": ["requestId", "validation"]
+  "required": ["request_id", "validation"]
 }
 

@@ -9,17 +9,17 @@
     "source": {
       "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json"
     },
-    "eventType": {
+    "event_type": {
       "type": "string",
       "minLength": 1
     },
-    "occurredAt": {
+    "occurred_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
     "summary": {
       "type": "string"
     }
   },
-  "required": ["source", "eventType", "occurredAt"]
+  "required": ["source", "event_type", "occurred_at"]
 }
 

@@ -16,6 +16,10 @@ Every schema must include:
 
 Cross-file `$ref` values must use absolute `$id` URIs.
 
+## Wire Field Naming
+
+Per `UBU-D0228`, Phase 1 UbU wire fields are snake_case. Generated TypeScript follows those wire names rather than converting them to client-side casing. This convention is enforced by schema validation and generated-output checks.
+
 ## IDs
 
 UbU IDs are prefixed strings with one `_` delimiter. The suffix is a lowercase, unhyphenated UUIDv7 rendered as 32 hex characters.
@@ -52,4 +56,3 @@ TODO: revisit this coupling at 1.0 and decide whether selected extension points 
 Policy-engine output uses `legitimization` and `adjudication`. The engine is the `Legitimizer`; the interception point is the `enforcement gate`.
 
 `Decision` is reserved for UBU-D records and must not be used in schema titles or field names in this repository.
-

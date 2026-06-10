@@ -6,23 +6,23 @@
   "description": "Outcome of applying projection operations to an external system.",
   "additionalProperties": false,
   "properties": {
-    "previewId": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
-    "appliedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "preview_id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+    "applied_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "status": { "type": "string", "enum": ["applied", "partial", "failed"] },
-    "operationResults": {
+    "operation_results": {
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "operationId": { "type": "string", "minLength": 1 },
+          "operation_id": { "type": "string", "minLength": 1 },
           "status": { "type": "string", "enum": ["applied", "skipped", "failed"] },
           "message": { "type": "string" }
         },
-        "required": ["operationId", "status"]
+        "required": ["operation_id", "status"]
       }
     }
   },
-  "required": ["previewId", "appliedAt", "status", "operationResults"]
+  "required": ["preview_id", "applied_at", "status", "operation_results"]
 }
 

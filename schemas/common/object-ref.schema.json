@@ -9,11 +9,11 @@
     "id": {
       "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
     },
-    "objectType": {
+    "object_type": {
       "type": "string",
       "enum": ["Task", "Objective", "Plan", "LogEntry", "ExternalReference", "Compartment", "Snapshot", "AutomationWorker", "ProjectionPreview", "Calendar"]
     }
   },
-  "required": ["id", "objectType"]
+  "required": ["id", "object_type"]
 }
 

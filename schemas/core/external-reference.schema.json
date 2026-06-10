@@ -16,13 +16,13 @@
       "type": "string",
       "minLength": 1
     },
-    "observedAt": {
+    "observed_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
     "provenance": {
       "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
     }
   },
-  "required": ["id", "source", "title", "observedAt", "provenance"]
+  "required": ["id", "source", "title", "observed_at", "provenance"]
 }
 

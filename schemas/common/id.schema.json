@@ -5,16 +5,16 @@
   "type": "string",
   "description": "Any canonical UbU Phase 1 ID: a known prefix, one underscore delimiter, and a lowercase unhyphenated UUIDv7 suffix.",
   "oneOf": [
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/taskId" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/objectiveId" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/planId" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/logEntryId" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/externalReferenceId" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/compartmentId" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/snapshotId" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/automationWorkerId" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/projectionPreviewId" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/calendarId" }
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/task_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/objective_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/plan_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/log_entry_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/external_reference_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/compartment_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/snapshot_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/automation_worker_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/projection_preview_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/calendar_id" }
   ]
 }
 

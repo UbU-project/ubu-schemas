@@ -6,11 +6,11 @@
   "description": "A stable actor identity used for attribution, without prescribing an authentication system.",
   "additionalProperties": false,
   "properties": {
-    "subjectKey": {
+    "subject_key": {
       "type": "string",
       "minLength": 1
     },
-    "displayName": {
+    "display_name": {
       "type": "string",
       "minLength": 1
     },
@@ -19,6 +19,6 @@
       "enum": ["person", "service", "automation_worker", "system"]
     }
   },
-  "required": ["subjectKey", "kind"]
+  "required": ["subject_key", "kind"]
 }
 

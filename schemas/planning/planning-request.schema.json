@@ -6,16 +6,16 @@
   "description": "Input envelope for a planning pass over current universe state and user intent.",
   "additionalProperties": false,
   "properties": {
-    "requestId": { "type": "string", "minLength": 1 },
-    "requestedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
-    "authoritySource": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
+    "request_id": { "type": "string", "minLength": 1 },
+    "requested_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "authority_source": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
     "objective": { "$ref": "https://schemas.ubunow.net/phase1/core/objective.schema.json" },
-    "taskSpecs": {
+    "task_specs": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/planning/task-spec.schema.json" }
     },
     "state": { "$ref": "https://schemas.ubunow.net/phase1/core/universe-state.schema.json" }
   },
-  "required": ["requestId", "requestedAt", "authoritySource"]
+  "required": ["request_id", "requested_at", "authority_source"]
 }
 

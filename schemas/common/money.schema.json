@@ -10,10 +10,10 @@
       "type": "string",
       "pattern": "^[A-Z]{3}$"
     },
-    "amountMinor": {
+    "amount_minor": {
       "type": "integer"
     }
   },
-  "required": ["currency", "amountMinor"]
+  "required": ["currency", "amount_minor"]
 }
 

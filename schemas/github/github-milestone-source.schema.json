@@ -10,7 +10,7 @@
     "number": { "type": "integer", "minimum": 1 },
     "title": { "type": "string", "minLength": 1 },
     "state": { "type": "string", "enum": ["open", "closed"] },
-    "dueOn": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+    "due_on": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
   },
   "required": ["repository", "number", "title", "state"]
 }

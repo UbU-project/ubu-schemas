@@ -16,13 +16,13 @@
       "type": "string",
       "minLength": 1
     },
-    "loggedAt": {
+    "logged_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
-    "authoritySource": {
+    "authority_source": {
       "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json"
     }
   },
-  "required": ["id", "message", "loggedAt", "authoritySource"]
+  "required": ["id", "message", "logged_at", "authority_source"]
 }
 

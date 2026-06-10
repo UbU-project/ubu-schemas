@@ -6,13 +6,13 @@
   "description": "Manifest for an exported artifact bundle.",
   "additionalProperties": false,
   "properties": {
-    "artifactId": { "type": "string", "minLength": 1 },
-    "createdAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "artifact_id": { "type": "string", "minLength": 1 },
+    "created_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "items": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json" }
     }
   },
-  "required": ["artifactId", "createdAt", "items"]
+  "required": ["artifact_id", "created_at", "items"]
 }
 

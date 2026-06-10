@@ -6,11 +6,11 @@
   "description": "Plan for publishing an artifact bundle.",
   "additionalProperties": false,
   "properties": {
-    "plannedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "planned_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "channel": { "type": "string", "minLength": 1 },
     "manifest": { "$ref": "https://schemas.ubunow.net/phase1/artifact/artifact-manifest.schema.json" },
     "review": { "$ref": "https://schemas.ubunow.net/phase1/artifact/export-review.schema.json" }
   },
-  "required": ["plannedAt", "channel", "manifest"]
+  "required": ["planned_at", "channel", "manifest"]
 }
 

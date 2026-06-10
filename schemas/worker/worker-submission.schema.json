@@ -6,11 +6,11 @@
   "description": "Envelope for an automation worker submitting a candidate result.",
   "additionalProperties": false,
   "properties": {
-    "submissionId": { "type": "string", "minLength": 1 },
-    "submittedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "submission_id": { "type": "string", "minLength": 1 },
+    "submitted_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "authority": { "$ref": "https://schemas.ubunow.net/phase1/worker/worker-authority.schema.json" },
     "payload": { "type": "object" }
   },
-  "required": ["submissionId", "submittedAt", "authority", "payload"]
+  "required": ["submission_id", "submitted_at", "authority", "payload"]
 }
 

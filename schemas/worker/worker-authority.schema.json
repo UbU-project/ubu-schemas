@@ -6,10 +6,10 @@
   "description": "Authority context attached to an automation worker submission.",
   "additionalProperties": false,
   "properties": {
-    "workerId": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
-    "authoritySource": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
-    "delegatedBy": { "$ref": "https://schemas.ubunow.net/phase1/core/identity.schema.json" }
+    "worker_id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+    "authority_source": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
+    "delegated_by": { "$ref": "https://schemas.ubunow.net/phase1/core/identity.schema.json" }
   },
-  "required": ["workerId", "authoritySource"]
+  "required": ["worker_id", "authority_source"]
 }
 

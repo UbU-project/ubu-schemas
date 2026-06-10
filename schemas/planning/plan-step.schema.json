@@ -7,9 +7,9 @@
   "additionalProperties": false,
   "properties": {
     "index": { "type": "integer", "minimum": 0 },
-    "taskId": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+    "task_id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
     "summary": { "type": "string", "minLength": 1 },
-    "dependsOn": {
+    "depends_on": {
       "type": "array",
       "items": { "type": "integer", "minimum": 0 }
     }

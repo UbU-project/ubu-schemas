@@ -7,14 +7,14 @@
   "additionalProperties": false,
   "properties": {
     "id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
-    "objectiveId": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+    "objective_id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
     "status": { "type": "string", "enum": ["candidate", "admitted", "rejected", "superseded"] },
     "steps": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/planning/plan-step.schema.json" }
     },
-    "createdAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+    "created_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
   },
-  "required": ["id", "status", "steps", "createdAt"]
+  "required": ["id", "status", "steps", "created_at"]
 }
 

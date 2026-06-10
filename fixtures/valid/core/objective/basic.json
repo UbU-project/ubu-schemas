@@ -5,8 +5,8 @@
   "status": "active",
   "priority": 80,
   "provenance": {
-    "createdAt": "2026-06-10T14:30:00Z",
-    "authoritySource": "user"
+    "created_at": "2026-06-10T14:30:00Z",
+    "authority_source": "user"
   }
 }
 

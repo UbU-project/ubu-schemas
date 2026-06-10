@@ -7,13 +7,13 @@
   "additionalProperties": false,
   "properties": {
     "id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
-    "createdAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "created_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "operations": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/projection/projection-operation.schema.json" }
     },
-    "policySummary": { "$ref": "https://schemas.ubunow.net/phase1/common/policy-summary.schema.json" }
+    "policy_summary": { "$ref": "https://schemas.ubunow.net/phase1/common/policy-summary.schema.json" }
   },
-  "required": ["id", "createdAt", "operations"]
+  "required": ["id", "created_at", "operations"]
 }
 

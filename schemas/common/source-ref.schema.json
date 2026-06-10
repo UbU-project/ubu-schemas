@@ -6,11 +6,11 @@
   "description": "Reference to an external or imported source that informed a UbU object.",
   "additionalProperties": false,
   "properties": {
-    "sourceKind": {
+    "source_kind": {
       "type": "string",
       "minLength": 1
     },
-    "sourceId": {
+    "source_id": {
       "type": "string",
       "minLength": 1
     },
@@ -19,6 +19,6 @@
       "format": "uri"
     }
   },
-  "required": ["sourceKind", "sourceId"]
+  "required": ["source_kind", "source_id"]
 }
 

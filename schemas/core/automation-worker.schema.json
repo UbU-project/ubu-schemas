@@ -20,10 +20,10 @@
         "minLength": 1
       }
     },
-    "registeredAt": {
+    "registered_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     }
   },
-  "required": ["id", "name", "capabilities", "registeredAt"]
+  "required": ["id", "name", "capabilities", "registered_at"]
 }
 

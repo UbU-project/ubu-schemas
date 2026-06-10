@@ -6,11 +6,11 @@
   "description": "A store-level event describing admission, update, migration, or recalculation.",
   "additionalProperties": false,
   "properties": {
-    "eventType": { "type": "string", "enum": ["admitted", "updated", "recalculated", "migrated"] },
-    "occurredAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "event_type": { "type": "string", "enum": ["admitted", "updated", "recalculated", "migrated"] },
+    "occurred_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "object": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" },
     "summary": { "type": "string" }
   },
-  "required": ["eventType", "occurredAt"]
+  "required": ["event_type", "occurred_at"]
 }
 

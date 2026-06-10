@@ -6,13 +6,13 @@
   "description": "Initial API response containing a compact universe state.",
   "additionalProperties": false,
   "properties": {
-    "respondedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "responded_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "state": { "$ref": "https://schemas.ubunow.net/phase1/core/universe-state.schema.json" },
     "errors": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/common/error.schema.json" }
     }
   },
-  "required": ["respondedAt", "state"]
+  "required": ["responded_at", "state"]
 }
 

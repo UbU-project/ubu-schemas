@@ -6,20 +6,20 @@
   "description": "Creation and authority metadata for a schema object.",
   "additionalProperties": false,
   "properties": {
-    "createdAt": {
+    "created_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
-    "createdBy": {
+    "created_by": {
       "type": "string",
       "minLength": 1
     },
-    "authoritySource": {
+    "authority_source": {
       "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json"
     },
     "source": {
       "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json"
     }
   },
-  "required": ["createdAt", "authoritySource"]
+  "required": ["created_at", "authority_source"]
 }
 

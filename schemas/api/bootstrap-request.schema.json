@@ -6,9 +6,9 @@
   "description": "Initial API request to bootstrap Phase 1 state.",
   "additionalProperties": false,
   "properties": {
-    "requestedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "requested_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "identity": { "$ref": "https://schemas.ubunow.net/phase1/core/identity.schema.json" }
   },
-  "required": ["requestedAt", "identity"]
+  "required": ["requested_at", "identity"]
 }
 

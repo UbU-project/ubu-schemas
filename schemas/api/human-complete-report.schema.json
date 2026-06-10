@@ -6,11 +6,11 @@
   "description": "User report that a task or work item has been completed outside automation.",
   "additionalProperties": false,
   "properties": {
-    "reportedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "reported_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "subject": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" },
-    "authoritySource": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
+    "authority_source": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
     "note": { "type": "string" }
   },
-  "required": ["reportedAt", "subject", "authoritySource"]
+  "required": ["reported_at", "subject", "authority_source"]
 }
 

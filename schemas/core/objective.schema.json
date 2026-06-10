@@ -25,7 +25,7 @@
       "minimum": 0,
       "maximum": 100
     },
-    "compartmentId": {
+    "compartment_id": {
       "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
     },
     "provenance": {

@@ -6,13 +6,13 @@
   "description": "A reason to recalculate derived Phase 1 state.",
   "additionalProperties": false,
   "properties": {
-    "triggeredAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "triggered_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "reason": { "type": "string", "minLength": 1 },
     "objects": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" }
     }
   },
-  "required": ["triggeredAt", "reason"]
+  "required": ["triggered_at", "reason"]
 }
 

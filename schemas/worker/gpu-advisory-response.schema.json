@@ -6,12 +6,12 @@
   "description": "Advisory GPU capacity response from an automation worker.",
   "additionalProperties": false,
   "properties": {
-    "requestId": { "type": "string", "minLength": 1 },
-    "respondedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "request_id": { "type": "string", "minLength": 1 },
+    "responded_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "recommendation": { "type": "string", "enum": ["run_now", "defer", "split", "manual_review"] },
     "rationale": { "type": "string" },
-    "estimatedCost": { "$ref": "https://schemas.ubunow.net/phase1/common/money.schema.json" }
+    "estimated_cost": { "$ref": "https://schemas.ubunow.net/phase1/common/money.schema.json" }
   },
-  "required": ["requestId", "respondedAt", "recommendation"]
+  "required": ["request_id", "responded_at", "recommendation"]
 }
 

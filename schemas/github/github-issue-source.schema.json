@@ -10,13 +10,13 @@
     "number": { "type": "integer", "minimum": 1 },
     "title": { "type": "string", "minLength": 1 },
     "state": { "type": "string", "enum": ["open", "closed"] },
-    "htmlUrl": { "type": "string", "format": "uri" },
-    "updatedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "html_url": { "type": "string", "format": "uri" },
+    "updated_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "labels": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/github/github-label-source.schema.json" }
     }
   },
-  "required": ["repository", "number", "title", "state", "htmlUrl", "updatedAt"]
+  "required": ["repository", "number", "title", "state", "html_url", "updated_at"]
 }
 

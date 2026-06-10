@@ -2,14 +2,14 @@
   "repository": {
     "owner": "UbU-project",
     "name": "ubu-schemas",
-    "htmlUrl": "https://github.com/UbU-project/ubu-schemas",
-    "defaultBranch": "main"
+    "html_url": "https://github.com/UbU-project/ubu-schemas",
+    "default_branch": "main"
   },
   "number": 1,
   "title": "Create scaffold",
   "state": "open",
-  "htmlUrl": "https://github.com/UbU-project/ubu-schemas/issues/1",
-  "updatedAt": "2026-06-10T14:30:00Z",
+  "html_url": "https://github.com/UbU-project/ubu-schemas/issues/1",
+  "updated_at": "2026-06-10T14:30:00Z",
   "labels": [
     {
       "name": "contract",

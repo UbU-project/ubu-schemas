@@ -9,7 +9,7 @@
     "id": {
       "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
     },
-    "capturedAt": {
+    "captured_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
     "objects": {
@@ -22,6 +22,6 @@
       "type": "string"
     }
   },
-  "required": ["id", "capturedAt", "objects"]
+  "required": ["id", "captured_at", "objects"]
 }
 

@@ -12,14 +12,14 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "claimId": { "type": "string", "minLength": 1 },
+          "claim_id": { "type": "string", "minLength": 1 },
           "text": { "type": "string", "minLength": 1 },
-          "evidenceRefs": {
+          "evidence_refs": {
             "type": "array",
             "items": { "type": "string", "minLength": 1 }
           }
         },
-        "required": ["claimId", "text"]
+        "required": ["claim_id", "text"]
       }
     }
   },

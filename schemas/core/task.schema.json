@@ -19,19 +19,19 @@
     "status": {
       "$ref": "https://schemas.ubunow.net/phase1/core/task-status.schema.json"
     },
-    "objectiveId": {
+    "objective_id": {
       "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
     },
     "assignee": {
       "$ref": "https://schemas.ubunow.net/phase1/core/identity.schema.json"
     },
-    "blockedBy": {
+    "blocked_by": {
       "type": "array",
       "items": {
         "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
       }
     },
-    "dueAt": {
+    "due_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
     "provenance": {

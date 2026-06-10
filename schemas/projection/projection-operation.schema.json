@@ -6,11 +6,11 @@
   "description": "A proposed projection write operation to an external system.",
   "additionalProperties": false,
   "properties": {
-    "operationId": { "type": "string", "minLength": 1 },
+    "operation_id": { "type": "string", "minLength": 1 },
     "kind": { "type": "string", "enum": ["create", "update", "comment", "label"] },
     "target": { "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json" },
     "summary": { "type": "string", "minLength": 1 }
   },
-  "required": ["operationId", "kind", "target", "summary"]
+  "required": ["operation_id", "kind", "target", "summary"]
 }
 

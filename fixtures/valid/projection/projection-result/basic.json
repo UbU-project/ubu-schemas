@@ -1,10 +1,10 @@
 {
-  "previewId": "proj_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
-  "appliedAt": "2026-06-10T14:33:00Z",
+  "preview_id": "proj_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+  "applied_at": "2026-06-10T14:33:00Z",
   "status": "applied",
-  "operationResults": [
+  "operation_results": [
     {
-      "operationId": "op-1",
+      "operation_id": "op-1",
       "status": "applied",
       "message": "Comment posted."
     }

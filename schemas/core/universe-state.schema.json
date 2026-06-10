@@ -6,7 +6,7 @@
   "description": "A compact collection of active Phase 1 objects for planning or API exchange.",
   "additionalProperties": false,
   "properties": {
-    "capturedAt": {
+    "captured_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
     "objectives": {
@@ -22,6 +22,6 @@
       }
     }
   },
-  "required": ["capturedAt", "objectives", "tasks"]
+  "required": ["captured_at", "objectives", "tasks"]
 }
 

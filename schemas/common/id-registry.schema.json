@@ -7,16 +7,16 @@
   "additionalProperties": false,
   "properties": {
     "prefix": {
-      "$ref": "#/$defs/allowedPrefix"
+      "$ref": "#/$defs/allowed_prefix"
     },
-    "objectType": {
-      "$ref": "#/$defs/objectType"
+    "object_type": {
+      "$ref": "#/$defs/object_type"
     },
     "id": {
-      "$ref": "#/$defs/anyUbUId"
+      "$ref": "#/$defs/any_ubu_id"
     }
   },
-  "required": ["prefix", "objectType", "id"],
+  "required": ["prefix", "object_type", "id"],
   "allOf": [
     {
       "if": {
@@ -27,8 +27,8 @@
       },
       "then": {
         "properties": {
-          "objectType": { "const": "Task" },
-          "id": { "$ref": "#/$defs/taskId" }
+          "object_type": { "const": "Task" },
+          "id": { "$ref": "#/$defs/task_id" }
         }
       }
     },
@@ -41,8 +41,8 @@
       },
       "then": {
         "properties": {
-          "objectType": { "const": "Objective" },
-          "id": { "$ref": "#/$defs/objectiveId" }
+          "object_type": { "const": "Objective" },
+          "id": { "$ref": "#/$defs/objective_id" }
         }
       }
     },
@@ -55,8 +55,8 @@
       },
       "then": {
         "properties": {
-          "objectType": { "const": "Plan" },
-          "id": { "$ref": "#/$defs/planId" }
+          "object_type": { "const": "Plan" },
+          "id": { "$ref": "#/$defs/plan_id" }
         }
       }
     },
@@ -69,8 +69,8 @@
       },
       "then": {
         "properties": {
-          "objectType": { "const": "LogEntry" },
-          "id": { "$ref": "#/$defs/logEntryId" }
+          "object_type": { "const": "LogEntry" },
+          "id": { "$ref": "#/$defs/log_entry_id" }
         }
       }
     },
@@ -83,8 +83,8 @@
       },
       "then": {
         "properties": {
-          "objectType": { "const": "ExternalReference" },
-          "id": { "$ref": "#/$defs/externalReferenceId" }
+          "object_type": { "const": "ExternalReference" },
+          "id": { "$ref": "#/$defs/external_reference_id" }
         }
       }
     },
@@ -97,8 +97,8 @@
       },
       "then": {
         "properties": {
-          "objectType": { "const": "Compartment" },
-          "id": { "$ref": "#/$defs/compartmentId" }
+          "object_type": { "const": "Compartment" },
+          "id": { "$ref": "#/$defs/compartment_id" }
         }
       }
     },
@@ -111,8 +111,8 @@
       },
       "then": {
         "properties": {
-          "objectType": { "const": "Snapshot" },
-          "id": { "$ref": "#/$defs/snapshotId" }
+          "object_type": { "const": "Snapshot" },
+          "id": { "$ref": "#/$defs/snapshot_id" }
         }
       }
     },
@@ -125,8 +125,8 @@
       },
       "then": {
         "properties": {
-          "objectType": { "const": "AutomationWorker" },
-          "id": { "$ref": "#/$defs/automationWorkerId" }
+          "object_type": { "const": "AutomationWorker" },
+          "id": { "$ref": "#/$defs/automation_worker_id" }
         }
       }
     },
@@ -139,8 +139,8 @@
       },
       "then": {
         "properties": {
-          "objectType": { "const": "ProjectionPreview" },
-          "id": { "$ref": "#/$defs/projectionPreviewId" }
+          "object_type": { "const": "ProjectionPreview" },
+          "id": { "$ref": "#/$defs/projection_preview_id" }
         }
       }
     },
@@ -153,78 +153,78 @@
       },
       "then": {
         "properties": {
-          "objectType": { "const": "Calendar" },
-          "id": { "$ref": "#/$defs/calendarId" }
+          "object_type": { "const": "Calendar" },
+          "id": { "$ref": "#/$defs/calendar_id" }
         }
       }
     }
   ],
   "$defs": {
-    "uuidV7Suffix": {
+    "uuid_v7_suffix": {
       "type": "string",
       "description": "Lowercase unhyphenated UUIDv7 suffix, 32 hex characters.",
       "pattern": "^[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "allowedPrefix": {
+    "allowed_prefix": {
       "type": "string",
       "enum": ["task_", "obj_", "plan_", "log_", "xref_", "comp_", "snap_", "worker_", "proj_", "cal_"]
     },
-    "objectType": {
+    "object_type": {
       "type": "string",
       "enum": ["Task", "Objective", "Plan", "LogEntry", "ExternalReference", "Compartment", "Snapshot", "AutomationWorker", "ProjectionPreview", "Calendar"]
     },
-    "taskId": {
+    "task_id": {
       "type": "string",
       "pattern": "^task_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "objectiveId": {
+    "objective_id": {
       "type": "string",
       "pattern": "^obj_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "planId": {
+    "plan_id": {
       "type": "string",
       "pattern": "^plan_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "logEntryId": {
+    "log_entry_id": {
       "type": "string",
       "pattern": "^log_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "externalReferenceId": {
+    "external_reference_id": {
       "type": "string",
       "pattern": "^xref_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "compartmentId": {
+    "compartment_id": {
       "type": "string",
       "pattern": "^comp_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "snapshotId": {
+    "snapshot_id": {
       "type": "string",
       "pattern": "^snap_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "automationWorkerId": {
+    "automation_worker_id": {
       "type": "string",
       "pattern": "^worker_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "projectionPreviewId": {
+    "projection_preview_id": {
       "type": "string",
       "pattern": "^proj_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "calendarId": {
+    "calendar_id": {
       "type": "string",
       "pattern": "^cal_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
-    "anyUbUId": {
+    "any_ubu_id": {
       "oneOf": [
-        { "$ref": "#/$defs/taskId" },
-        { "$ref": "#/$defs/objectiveId" },
-        { "$ref": "#/$defs/planId" },
-        { "$ref": "#/$defs/logEntryId" },
-        { "$ref": "#/$defs/externalReferenceId" },
-        { "$ref": "#/$defs/compartmentId" },
-        { "$ref": "#/$defs/snapshotId" },
-        { "$ref": "#/$defs/automationWorkerId" },
-        { "$ref": "#/$defs/projectionPreviewId" },
-        { "$ref": "#/$defs/calendarId" }
+        { "$ref": "#/$defs/task_id" },
+        { "$ref": "#/$defs/objective_id" },
+        { "$ref": "#/$defs/plan_id" },
+        { "$ref": "#/$defs/log_entry_id" },
+        { "$ref": "#/$defs/external_reference_id" },
+        { "$ref": "#/$defs/compartment_id" },
+        { "$ref": "#/$defs/snapshot_id" },
+        { "$ref": "#/$defs/automation_worker_id" },
+        { "$ref": "#/$defs/projection_preview_id" },
+        { "$ref": "#/$defs/calendar_id" }
       ]
     }
   }

@@ -7,11 +7,11 @@
   "additionalProperties": false,
   "properties": {
     "repository": { "$ref": "https://schemas.ubunow.net/phase1/github/github-repository-source.schema.json" },
-    "commentId": { "type": "integer", "minimum": 1 },
+    "comment_id": { "type": "integer", "minimum": 1 },
     "body": { "type": "string" },
-    "htmlUrl": { "type": "string", "format": "uri" },
-    "updatedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+    "html_url": { "type": "string", "format": "uri" },
+    "updated_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
   },
-  "required": ["repository", "commentId", "body", "htmlUrl", "updatedAt"]
+  "required": ["repository", "comment_id", "body", "html_url", "updated_at"]
 }
 

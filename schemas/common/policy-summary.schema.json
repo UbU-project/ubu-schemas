@@ -10,17 +10,17 @@
       "type": "string",
       "enum": ["accepted", "needs_review", "rejected"]
     },
-    "adjudicationReasons": {
+    "adjudication_reasons": {
       "type": "array",
       "items": {
         "type": "string",
         "minLength": 1
       }
     },
-    "checkedAt": {
+    "checked_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     }
   },
-  "required": ["legitimization", "checkedAt"]
+  "required": ["legitimization", "checked_at"]
 }
 

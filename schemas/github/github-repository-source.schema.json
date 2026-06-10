@@ -8,9 +8,9 @@
   "properties": {
     "owner": { "type": "string", "minLength": 1 },
     "name": { "type": "string", "minLength": 1 },
-    "htmlUrl": { "type": "string", "format": "uri" },
-    "defaultBranch": { "type": "string", "minLength": 1 }
+    "html_url": { "type": "string", "format": "uri" },
+    "default_branch": { "type": "string", "minLength": 1 }
   },
-  "required": ["owner", "name", "htmlUrl"]
+  "required": ["owner", "name", "html_url"]
 }
 

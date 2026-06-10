@@ -7,7 +7,7 @@
   "additionalProperties": false,
   "properties": {
     "repository": { "$ref": "https://schemas.ubunow.net/phase1/github/github-repository-source.schema.json" },
-    "issueNumber": { "type": ["integer", "null"], "minimum": 1 },
+    "issue_number": { "type": ["integer", "null"], "minimum": 1 },
     "title": { "type": "string", "minLength": 1 },
     "body": { "type": "string" },
     "labels": {
