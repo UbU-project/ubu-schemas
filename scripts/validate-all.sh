@@ -6,4 +6,4 @@ cargo clippy --all-targets
 cargo test
 cargo run -p validate-fixtures
 scripts/generate-typescript.sh
-
+scripts/check-wire-casing.sh
