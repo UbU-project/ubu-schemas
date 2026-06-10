@@ -6,6 +6,7 @@
   "description": "Planner output containing candidate plan material and validation diagnostics.",
   "additionalProperties": false,
   "properties": {
+    "schema_version": { "type": "string", "const": "planning-kernel-contract/0.1" },
     "request_id": { "type": "string", "minLength": 1 },
     "responded_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "plan": { "$ref": "https://schemas.ubunow.net/phase1/planning/plan.schema.json" },
@@ -15,6 +16,5 @@
       "items": { "$ref": "https://schemas.ubunow.net/phase1/planning/explanation-fragment.schema.json" }
     }
   },
-  "required": ["request_id", "responded_at", "validation"]
+  "required": ["schema_version", "request_id", "responded_at", "validation"]
 }
-

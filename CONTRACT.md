@@ -53,6 +53,10 @@ Per `UBU-D0229`, `schemas/core/universe-state.schema.json` is the canonical Phas
 
 Per `UBU-D0227`, persisted `Task.status` is the canonical lifecycle state and is limited to `active`, `completed`, `failed`, and `moot`. Readiness and execution states are derived views and must not be persisted as canonical task status. A `moot` task requires `moot_reason_code`; non-moot lifecycle states forbid it.
 
+## Planning Envelope Versioning
+
+Planning request, planning response, repair request, and repair response envelopes carry required `schema_version` and `request_id` fields. The initial known planning envelope version set contains only `planning-kernel-contract/0.1`. Unknown versions must produce structured validation diagnostics rather than panics. Successful responses echo the request `schema_version`; Phase 1 does not define a separate response envelope version field.
+
 ## Lockstep Coupling
 
 Phase 1 schemas are pre-1.0 and intentionally use `additionalProperties: false` for object contracts where appropriate. This creates lockstep with hand-written `ubu-core` serde types so schema drift fails early in CI and fixture review.
