@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/compartment.schema.json",
+  "title": "Compartment",
+  "type": "object",
+  "description": "A compartment used to group or scope Phase 1 objects.",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
+    "label": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/compartment-label.schema.json"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "required": ["id", "label"]
+}
+

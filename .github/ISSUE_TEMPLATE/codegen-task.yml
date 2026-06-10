@@ -1,0 +1,23 @@
+name: Codegen task
+description: Track TypeScript generation or generated output work.
+title: "[codegen] "
+labels: ["codegen"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should code generation produce or change?
+    validations:
+      required: true
+  - type: textarea
+    id: schema-impact
+    attributes:
+      label: Schema impact
+      description: Which schemas or references are involved?
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: How will this be checked in CI?
+

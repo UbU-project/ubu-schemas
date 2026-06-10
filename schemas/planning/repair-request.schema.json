@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/planning/repair-request.schema.json",
+  "title": "Repair Request",
+  "type": "object",
+  "description": "Request to repair a rejected or invalid plan candidate.",
+  "additionalProperties": false,
+  "properties": {
+    "requestId": { "type": "string", "minLength": 1 },
+    "plan": { "$ref": "https://schemas.ubunow.net/phase1/planning/plan.schema.json" },
+    "diagnostics": {
+      "type": "array",
+      "items": { "$ref": "https://schemas.ubunow.net/phase1/planning/skeleton-failure-diagnostic.schema.json" }
+    }
+  },
+  "required": ["requestId", "plan", "diagnostics"]
+}
+

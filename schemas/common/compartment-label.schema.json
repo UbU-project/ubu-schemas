@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/common/compartment-label.schema.json",
+  "title": "Compartment Label",
+  "type": "string",
+  "description": "Stable human-readable compartment label.",
+  "minLength": 1,
+  "maxLength": 128,
+  "pattern": "^[A-Za-z0-9][A-Za-z0-9 ._/-]*$"
+}
+

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/task-status.schema.json",
+  "title": "Task Status",
+  "type": "string",
+  "description": "Phase 1 lifecycle status for a task.",
+  "enum": ["proposed", "ready", "blocked", "in_progress", "completed", "canceled"]
+}
+

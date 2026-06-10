@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/common/provenance.schema.json",
+  "title": "Provenance",
+  "type": "object",
+  "description": "Creation and authority metadata for a schema object.",
+  "additionalProperties": false,
+  "properties": {
+    "createdAt": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "createdBy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authoritySource": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json"
+    },
+    "source": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json"
+    }
+  },
+  "required": ["createdAt", "authoritySource"]
+}
+

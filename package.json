@@ -1,0 +1,15 @@
+{
+  "name": "@ubu-project/ubu-schemas",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "generate:typescript": "node scripts/generate-typescript.mjs",
+    "validate:all": "scripts/validate-all.sh"
+  },
+  "devDependencies": {
+    "json-schema-to-typescript": "^15.0.4"
+  }
+}
+

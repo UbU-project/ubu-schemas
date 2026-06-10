@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json",
+  "title": "Object Reference",
+  "type": "object",
+  "description": "Typed reference to another UbU object.",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
+    "objectType": {
+      "type": "string",
+      "enum": ["Task", "Objective", "Plan", "LogEntry", "ExternalReference", "Compartment", "Snapshot", "AutomationWorker", "ProjectionPreview", "Calendar"]
+    }
+  },
+  "required": ["id", "objectType"]
+}
+

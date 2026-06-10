@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/projection/projection-reconciliation.schema.json",
+  "title": "Projection Reconciliation",
+  "type": "object",
+  "description": "Comparison of expected projection state with observed external state.",
+  "additionalProperties": false,
+  "properties": {
+    "source": { "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json" },
+    "checkedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "status": { "type": "string", "enum": ["matched", "drifted", "missing"] },
+    "notes": { "type": "string" }
+  },
+  "required": ["source", "checkedAt", "status"]
+}
+

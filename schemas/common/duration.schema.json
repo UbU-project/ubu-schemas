@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/common/duration.schema.json",
+  "title": "Duration",
+  "type": "object",
+  "description": "A non-negative duration expressed in whole seconds, with optional human-readable ISO 8601 text.",
+  "additionalProperties": false,
+  "properties": {
+    "seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "iso8601": {
+      "type": "string",
+      "pattern": "^P"
+    }
+  },
+  "required": ["seconds"]
+}
+

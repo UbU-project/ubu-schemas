@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/store/admitted-object.schema.json",
+  "title": "Admitted Object",
+  "type": "object",
+  "description": "A schema object admitted through an enforcement gate into the store.",
+  "additionalProperties": false,
+  "properties": {
+    "object": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" },
+    "admittedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "policySummary": { "$ref": "https://schemas.ubunow.net/phase1/common/policy-summary.schema.json" }
+  },
+  "required": ["object", "admittedAt"]
+}
+

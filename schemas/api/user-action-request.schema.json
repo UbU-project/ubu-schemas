@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/api/user-action-request.schema.json",
+  "title": "User Action Request",
+  "type": "object",
+  "description": "User-originated action request submitted to an enforcement gate.",
+  "additionalProperties": false,
+  "properties": {
+    "requestId": { "type": "string", "minLength": 1 },
+    "submittedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "authoritySource": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
+    "action": { "type": "string", "minLength": 1 },
+    "target": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" }
+  },
+  "required": ["requestId", "submittedAt", "authoritySource", "action"]
+}
+

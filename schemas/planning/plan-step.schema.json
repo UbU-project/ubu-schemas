@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/planning/plan-step.schema.json",
+  "title": "Plan Step",
+  "type": "object",
+  "description": "One ordered step in a Phase 1 plan.",
+  "additionalProperties": false,
+  "properties": {
+    "index": { "type": "integer", "minimum": 0 },
+    "taskId": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+    "summary": { "type": "string", "minLength": 1 },
+    "dependsOn": {
+      "type": "array",
+      "items": { "type": "integer", "minimum": 0 }
+    }
+  },
+  "required": ["index", "summary"]
+}
+

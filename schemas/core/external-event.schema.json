@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/external-event.schema.json",
+  "title": "External Event",
+  "type": "object",
+  "description": "An event observed from an external source and linked to a source reference.",
+  "additionalProperties": false,
+  "properties": {
+    "source": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json"
+    },
+    "eventType": {
+      "type": "string",
+      "minLength": 1
+    },
+    "occurredAt": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "summary": {
+      "type": "string"
+    }
+  },
+  "required": ["source", "eventType", "occurredAt"]
+}
+

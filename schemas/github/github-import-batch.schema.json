@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/github/github-import-batch.schema.json",
+  "title": "GitHub Import Batch",
+  "type": "object",
+  "description": "A batch of GitHub source records imported together.",
+  "additionalProperties": false,
+  "properties": {
+    "batchId": { "type": "string", "minLength": 1 },
+    "importedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "issues": {
+      "type": "array",
+      "items": { "$ref": "https://schemas.ubunow.net/phase1/github/github-issue-source.schema.json" }
+    },
+    "pullRequests": {
+      "type": "array",
+      "items": { "$ref": "https://schemas.ubunow.net/phase1/github/github-pr-source.schema.json" }
+    }
+  },
+  "required": ["batchId", "importedAt"]
+}
+

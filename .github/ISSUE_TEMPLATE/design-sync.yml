@@ -1,0 +1,21 @@
+name: Design sync
+description: Track cross-repo or cross-team contract alignment.
+title: "[design-sync] "
+labels: ["design-sync"]
+body:
+  - type: textarea
+    id: topic
+    attributes:
+      label: Topic
+    validations:
+      required: true
+  - type: textarea
+    id: participants
+    attributes:
+      label: Participants
+      description: Which projects or maintainers need to align?
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+

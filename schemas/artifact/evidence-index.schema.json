@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/artifact/evidence-index.schema.json",
+  "title": "Evidence Index",
+  "type": "object",
+  "description": "Index of evidence references used by an artifact.",
+  "additionalProperties": false,
+  "properties": {
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "evidenceId": { "type": "string", "minLength": 1 },
+          "source": { "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json" },
+          "summary": { "type": "string" }
+        },
+        "required": ["evidenceId", "source"]
+      }
+    }
+  },
+  "required": ["evidence"]
+}
+

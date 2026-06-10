@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/artifact/claim-register.schema.json",
+  "title": "Claim Register",
+  "type": "object",
+  "description": "Register of claims included in an artifact review or publication package.",
+  "additionalProperties": false,
+  "properties": {
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "claimId": { "type": "string", "minLength": 1 },
+          "text": { "type": "string", "minLength": 1 },
+          "evidenceRefs": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 }
+          }
+        },
+        "required": ["claimId", "text"]
+      }
+    }
+  },
+  "required": ["claims"]
+}
+

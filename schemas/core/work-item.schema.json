@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/work-item.schema.json",
+  "title": "Work Item",
+  "type": "object",
+  "description": "A lightweight view of work that can point to a task, objective, or external reference.",
+  "additionalProperties": false,
+  "properties": {
+    "ref": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": ["ref", "summary"]
+}
+

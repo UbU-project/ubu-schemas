@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/artifact/publication-plan.schema.json",
+  "title": "Publication Plan",
+  "type": "object",
+  "description": "Plan for publishing an artifact bundle.",
+  "additionalProperties": false,
+  "properties": {
+    "plannedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "channel": { "type": "string", "minLength": 1 },
+    "manifest": { "$ref": "https://schemas.ubunow.net/phase1/artifact/artifact-manifest.schema.json" },
+    "review": { "$ref": "https://schemas.ubunow.net/phase1/artifact/export-review.schema.json" }
+  },
+  "required": ["plannedAt", "channel", "manifest"]
+}
+

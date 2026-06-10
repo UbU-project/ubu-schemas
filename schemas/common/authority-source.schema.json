@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json",
+  "title": "Authority Source",
+  "type": "string",
+  "description": "Closed source-of-authority enum. `user` is direct user authority; `user_override` is only for explicit override cases.",
+  "enum": ["user", "user_override", "delegated", "automation_worker", "policy", "system"],
+  "additionalProperties": false
+}
+

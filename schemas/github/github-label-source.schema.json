@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/github/github-label-source.schema.json",
+  "title": "GitHub Label Source",
+  "type": "object",
+  "description": "Imported GitHub label metadata.",
+  "additionalProperties": false,
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "color": { "type": "string", "pattern": "^[0-9a-fA-F]{6}$" },
+    "description": { "type": ["string", "null"] }
+  },
+  "required": ["name", "color"]
+}
+

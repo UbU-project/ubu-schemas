@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/planning/calendar.schema.json",
+  "title": "Calendar",
+  "type": "object",
+  "description": "A planning calendar with bounded availability windows.",
+  "additionalProperties": false,
+  "properties": {
+    "id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+    "timezone": { "type": "string", "minLength": 1 },
+    "windows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "start": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+          "end": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+        },
+        "required": ["start", "end"]
+      }
+    }
+  },
+  "required": ["id", "timezone", "windows"]
+}
+

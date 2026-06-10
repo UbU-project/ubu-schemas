@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/projection/projection-preview.schema.json",
+  "title": "Projection Preview",
+  "type": "object",
+  "description": "A preview of external-system writes before they pass an enforcement gate.",
+  "additionalProperties": false,
+  "properties": {
+    "id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+    "createdAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "operations": {
+      "type": "array",
+      "items": { "$ref": "https://schemas.ubunow.net/phase1/projection/projection-operation.schema.json" }
+    },
+    "policySummary": { "$ref": "https://schemas.ubunow.net/phase1/common/policy-summary.schema.json" }
+  },
+  "required": ["id", "createdAt", "operations"]
+}
+

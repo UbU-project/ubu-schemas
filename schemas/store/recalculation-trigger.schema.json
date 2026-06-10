@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/store/recalculation-trigger.schema.json",
+  "title": "Recalculation Trigger",
+  "type": "object",
+  "description": "A reason to recalculate derived Phase 1 state.",
+  "additionalProperties": false,
+  "properties": {
+    "triggeredAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "reason": { "type": "string", "minLength": 1 },
+    "objects": {
+      "type": "array",
+      "items": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" }
+    }
+  },
+  "required": ["triggeredAt", "reason"]
+}
+

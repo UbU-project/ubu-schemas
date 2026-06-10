@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/common/error.schema.json",
+  "title": "Error",
+  "type": "object",
+  "description": "Structured error details for Phase 1 API and tooling responses.",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "path": {
+      "type": "string"
+    }
+  },
+  "required": ["code", "message"]
+}
+

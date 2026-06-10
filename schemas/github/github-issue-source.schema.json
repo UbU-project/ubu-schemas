@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/github/github-issue-source.schema.json",
+  "title": "GitHub Issue Source",
+  "type": "object",
+  "description": "Imported GitHub issue source data used to create or update an external reference.",
+  "additionalProperties": false,
+  "properties": {
+    "repository": { "$ref": "https://schemas.ubunow.net/phase1/github/github-repository-source.schema.json" },
+    "number": { "type": "integer", "minimum": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "state": { "type": "string", "enum": ["open", "closed"] },
+    "htmlUrl": { "type": "string", "format": "uri" },
+    "updatedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "labels": {
+      "type": "array",
+      "items": { "$ref": "https://schemas.ubunow.net/phase1/github/github-label-source.schema.json" }
+    }
+  },
+  "required": ["repository", "number", "title", "state", "htmlUrl", "updatedAt"]
+}
+

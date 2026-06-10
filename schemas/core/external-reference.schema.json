@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/external-reference.schema.json",
+  "title": "External Reference",
+  "type": "object",
+  "description": "A canonical reference from UbU to an external system record.",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
+    "source": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observedAt": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "provenance": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
+    }
+  },
+  "required": ["id", "source", "title", "observedAt", "provenance"]
+}
+

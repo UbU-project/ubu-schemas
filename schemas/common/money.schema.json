@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/common/money.schema.json",
+  "title": "Money",
+  "type": "object",
+  "description": "A monetary amount represented in minor units for a specified ISO 4217 currency.",
+  "additionalProperties": false,
+  "properties": {
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$"
+    },
+    "amountMinor": {
+      "type": "integer"
+    }
+  },
+  "required": ["currency", "amountMinor"]
+}
+

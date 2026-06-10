@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/container.schema.json",
+  "title": "Container",
+  "type": "object",
+  "description": "A named grouping of UbU object references.",
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+      }
+    }
+  },
+  "required": ["name", "items"]
+}
+

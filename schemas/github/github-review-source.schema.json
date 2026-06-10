@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/github/github-review-source.schema.json",
+  "title": "GitHub Review Source",
+  "type": "object",
+  "description": "Imported GitHub pull request review metadata.",
+  "additionalProperties": false,
+  "properties": {
+    "pullRequest": { "$ref": "https://schemas.ubunow.net/phase1/github/github-pr-source.schema.json" },
+    "reviewId": { "type": "integer", "minimum": 1 },
+    "state": { "type": "string", "minLength": 1 },
+    "submittedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+  },
+  "required": ["pullRequest", "reviewId", "state"]
+}
+

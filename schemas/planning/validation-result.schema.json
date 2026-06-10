@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/planning/validation-result.schema.json",
+  "title": "Validation Result",
+  "type": "object",
+  "description": "Validation status and diagnostics for planning output.",
+  "additionalProperties": false,
+  "properties": {
+    "valid": { "type": "boolean" },
+    "diagnostics": {
+      "type": "array",
+      "items": { "$ref": "https://schemas.ubunow.net/phase1/planning/skeleton-failure-diagnostic.schema.json" }
+    },
+    "policySummary": { "$ref": "https://schemas.ubunow.net/phase1/common/policy-summary.schema.json" }
+  },
+  "required": ["valid", "diagnostics"]
+}
+

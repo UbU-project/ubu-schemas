@@ -1,0 +1,25 @@
+name: Contract change
+description: Propose a schema contract change.
+title: "[contract] "
+labels: ["contract"]
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed change
+      description: Describe the schema contract change.
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility impact
+      description: Which consumers or fixtures are affected?
+    validations:
+      required: true
+  - type: textarea
+    id: review
+    attributes:
+      label: Review notes
+      description: Note any design sync or implementation coordination required.
+

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/worker/worker-submission.schema.json",
+  "title": "Worker Submission",
+  "type": "object",
+  "description": "Envelope for an automation worker submitting a candidate result.",
+  "additionalProperties": false,
+  "properties": {
+    "submissionId": { "type": "string", "minLength": 1 },
+    "submittedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "authority": { "$ref": "https://schemas.ubunow.net/phase1/worker/worker-authority.schema.json" },
+    "payload": { "type": "object" }
+  },
+  "required": ["submissionId", "submittedAt", "authority", "payload"]
+}
+

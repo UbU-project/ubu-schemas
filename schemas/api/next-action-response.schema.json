@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/api/next-action-response.schema.json",
+  "title": "Next Action Response",
+  "type": "object",
+  "description": "API response describing the next suggested action without implementing planning logic.",
+  "additionalProperties": false,
+  "properties": {
+    "respondedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "task": { "$ref": "https://schemas.ubunow.net/phase1/core/task.schema.json" },
+    "explanation": { "$ref": "https://schemas.ubunow.net/phase1/planning/explanation-fragment.schema.json" }
+  },
+  "required": ["respondedAt"]
+}
+

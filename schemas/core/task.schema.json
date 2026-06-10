@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/task.schema.json",
+  "title": "Task",
+  "type": "object",
+  "description": "A Phase 1 unit of work with status, objective linkage, authority, and provenance.",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "status": {
+      "$ref": "https://schemas.ubunow.net/phase1/core/task-status.schema.json"
+    },
+    "objectiveId": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
+    "assignee": {
+      "$ref": "https://schemas.ubunow.net/phase1/core/identity.schema.json"
+    },
+    "blockedBy": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+      }
+    },
+    "dueAt": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "provenance": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
+    }
+  },
+  "required": ["id", "title", "status", "provenance"]
+}
+

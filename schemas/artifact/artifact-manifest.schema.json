@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/artifact/artifact-manifest.schema.json",
+  "title": "Artifact Manifest",
+  "type": "object",
+  "description": "Manifest for an exported artifact bundle.",
+  "additionalProperties": false,
+  "properties": {
+    "artifactId": { "type": "string", "minLength": 1 },
+    "createdAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "items": {
+      "type": "array",
+      "items": { "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json" }
+    }
+  },
+  "required": ["artifactId", "createdAt", "items"]
+}
+

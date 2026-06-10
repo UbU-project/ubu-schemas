@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/projection/github-managed-issue-write.schema.json",
+  "title": "GitHub Managed Issue Write",
+  "type": "object",
+  "description": "Requested creation or update of a GitHub issue managed by UbU.",
+  "additionalProperties": false,
+  "properties": {
+    "repository": { "$ref": "https://schemas.ubunow.net/phase1/github/github-repository-source.schema.json" },
+    "issueNumber": { "type": ["integer", "null"], "minimum": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "body": { "type": "string" },
+    "labels": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "required": ["repository", "title", "body"]
+}
+

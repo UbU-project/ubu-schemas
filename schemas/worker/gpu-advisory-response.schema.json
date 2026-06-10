@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/worker/gpu-advisory-response.schema.json",
+  "title": "GPU Advisory Response",
+  "type": "object",
+  "description": "Advisory GPU capacity response from an automation worker.",
+  "additionalProperties": false,
+  "properties": {
+    "requestId": { "type": "string", "minLength": 1 },
+    "respondedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "recommendation": { "type": "string", "enum": ["run_now", "defer", "split", "manual_review"] },
+    "rationale": { "type": "string" },
+    "estimatedCost": { "$ref": "https://schemas.ubunow.net/phase1/common/money.schema.json" }
+  },
+  "required": ["requestId", "respondedAt", "recommendation"]
+}
+

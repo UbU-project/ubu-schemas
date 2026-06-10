@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/github/github-pr-source.schema.json",
+  "title": "GitHub PR Source",
+  "type": "object",
+  "description": "Imported GitHub pull request source data.",
+  "additionalProperties": false,
+  "properties": {
+    "repository": { "$ref": "https://schemas.ubunow.net/phase1/github/github-repository-source.schema.json" },
+    "number": { "type": "integer", "minimum": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "state": { "type": "string", "enum": ["open", "closed", "merged"] },
+    "htmlUrl": { "type": "string", "format": "uri" },
+    "updatedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+  },
+  "required": ["repository", "number", "title", "state", "htmlUrl", "updatedAt"]
+}
+

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/api/bootstrap-request.schema.json",
+  "title": "Bootstrap Request",
+  "type": "object",
+  "description": "Initial API request to bootstrap Phase 1 state.",
+  "additionalProperties": false,
+  "properties": {
+    "requestedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "identity": { "$ref": "https://schemas.ubunow.net/phase1/core/identity.schema.json" }
+  },
+  "required": ["requestedAt", "identity"]
+}
+

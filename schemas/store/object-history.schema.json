@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/store/object-history.schema.json",
+  "title": "Object History",
+  "type": "object",
+  "description": "History metadata for changes observed on a stored object.",
+  "additionalProperties": false,
+  "properties": {
+    "object": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "https://schemas.ubunow.net/phase1/store/store-event.schema.json" }
+    }
+  },
+  "required": ["object", "events"]
+}
+

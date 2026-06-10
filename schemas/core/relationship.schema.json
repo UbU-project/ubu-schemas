@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/relationship.schema.json",
+  "title": "Relationship",
+  "type": "object",
+  "description": "A typed edge between two UbU object references.",
+  "additionalProperties": false,
+  "properties": {
+    "from": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+    },
+    "to": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+    },
+    "kind": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": ["from", "to", "kind"]
+}
+

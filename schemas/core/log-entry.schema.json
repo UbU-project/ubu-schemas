@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/log-entry.schema.json",
+  "title": "Log Entry",
+  "type": "object",
+  "description": "Append-only narrative or audit entry linked to a UbU object.",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
+    "subject": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    },
+    "loggedAt": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "authoritySource": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json"
+    }
+  },
+  "required": ["id", "message", "loggedAt", "authoritySource"]
+}
+

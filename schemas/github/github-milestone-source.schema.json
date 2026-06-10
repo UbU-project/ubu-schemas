@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/github/github-milestone-source.schema.json",
+  "title": "GitHub Milestone Source",
+  "type": "object",
+  "description": "Imported GitHub milestone metadata.",
+  "additionalProperties": false,
+  "properties": {
+    "repository": { "$ref": "https://schemas.ubunow.net/phase1/github/github-repository-source.schema.json" },
+    "number": { "type": "integer", "minimum": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "state": { "type": "string", "enum": ["open", "closed"] },
+    "dueOn": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+  },
+  "required": ["repository", "number", "title", "state"]
+}
+

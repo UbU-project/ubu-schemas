@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/github/github-repository-source.schema.json",
+  "title": "GitHub Repository Source",
+  "type": "object",
+  "description": "Reference metadata for a GitHub repository imported into UbU.",
+  "additionalProperties": false,
+  "properties": {
+    "owner": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "htmlUrl": { "type": "string", "format": "uri" },
+    "defaultBranch": { "type": "string", "minLength": 1 }
+  },
+  "required": ["owner", "name", "htmlUrl"]
+}
+

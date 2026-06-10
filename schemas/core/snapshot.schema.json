@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/snapshot.schema.json",
+  "title": "Snapshot",
+  "type": "object",
+  "description": "A named point-in-time capture of references and summary metadata.",
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+    },
+    "capturedAt": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+      }
+    },
+    "summary": {
+      "type": "string"
+    }
+  },
+  "required": ["id", "capturedAt", "objects"]
+}
+

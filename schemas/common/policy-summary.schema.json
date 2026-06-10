@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/common/policy-summary.schema.json",
+  "title": "Policy Summary",
+  "type": "object",
+  "description": "Compact Legitimizer output summary for an enforcement gate.",
+  "additionalProperties": false,
+  "properties": {
+    "legitimization": {
+      "type": "string",
+      "enum": ["accepted", "needs_review", "rejected"]
+    },
+    "adjudicationReasons": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "checkedAt": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    }
+  },
+  "required": ["legitimization", "checkedAt"]
+}
+

@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json",
+  "title": "Id Registry",
+  "type": "object",
+  "description": "Canonical UbU Phase 1 ID prefix registry, prefix-to-object-type mapping, and UUIDv7 suffix grammar.",
+  "additionalProperties": false,
+  "properties": {
+    "prefix": {
+      "$ref": "#/$defs/allowedPrefix"
+    },
+    "objectType": {
+      "$ref": "#/$defs/objectType"
+    },
+    "id": {
+      "$ref": "#/$defs/anyUbUId"
+    }
+  },
+  "required": ["prefix", "objectType", "id"],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "task_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "objectType": { "const": "Task" },
+          "id": { "$ref": "#/$defs/taskId" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "obj_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "objectType": { "const": "Objective" },
+          "id": { "$ref": "#/$defs/objectiveId" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "plan_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "objectType": { "const": "Plan" },
+          "id": { "$ref": "#/$defs/planId" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "log_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "objectType": { "const": "LogEntry" },
+          "id": { "$ref": "#/$defs/logEntryId" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "xref_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "objectType": { "const": "ExternalReference" },
+          "id": { "$ref": "#/$defs/externalReferenceId" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "comp_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "objectType": { "const": "Compartment" },
+          "id": { "$ref": "#/$defs/compartmentId" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "snap_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "objectType": { "const": "Snapshot" },
+          "id": { "$ref": "#/$defs/snapshotId" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "worker_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "objectType": { "const": "AutomationWorker" },
+          "id": { "$ref": "#/$defs/automationWorkerId" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "proj_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "objectType": { "const": "ProjectionPreview" },
+          "id": { "$ref": "#/$defs/projectionPreviewId" }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": { "const": "cal_" }
+        },
+        "required": ["prefix"]
+      },
+      "then": {
+        "properties": {
+          "objectType": { "const": "Calendar" },
+          "id": { "$ref": "#/$defs/calendarId" }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "uuidV7Suffix": {
+      "type": "string",
+      "description": "Lowercase unhyphenated UUIDv7 suffix, 32 hex characters.",
+      "pattern": "^[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "allowedPrefix": {
+      "type": "string",
+      "enum": ["task_", "obj_", "plan_", "log_", "xref_", "comp_", "snap_", "worker_", "proj_", "cal_"]
+    },
+    "objectType": {
+      "type": "string",
+      "enum": ["Task", "Objective", "Plan", "LogEntry", "ExternalReference", "Compartment", "Snapshot", "AutomationWorker", "ProjectionPreview", "Calendar"]
+    },
+    "taskId": {
+      "type": "string",
+      "pattern": "^task_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "objectiveId": {
+      "type": "string",
+      "pattern": "^obj_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "planId": {
+      "type": "string",
+      "pattern": "^plan_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "logEntryId": {
+      "type": "string",
+      "pattern": "^log_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "externalReferenceId": {
+      "type": "string",
+      "pattern": "^xref_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "compartmentId": {
+      "type": "string",
+      "pattern": "^comp_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "snapshotId": {
+      "type": "string",
+      "pattern": "^snap_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "automationWorkerId": {
+      "type": "string",
+      "pattern": "^worker_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "projectionPreviewId": {
+      "type": "string",
+      "pattern": "^proj_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "calendarId": {
+      "type": "string",
+      "pattern": "^cal_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
+    "anyUbUId": {
+      "oneOf": [
+        { "$ref": "#/$defs/taskId" },
+        { "$ref": "#/$defs/objectiveId" },
+        { "$ref": "#/$defs/planId" },
+        { "$ref": "#/$defs/logEntryId" },
+        { "$ref": "#/$defs/externalReferenceId" },
+        { "$ref": "#/$defs/compartmentId" },
+        { "$ref": "#/$defs/snapshotId" },
+        { "$ref": "#/$defs/automationWorkerId" },
+        { "$ref": "#/$defs/projectionPreviewId" },
+        { "$ref": "#/$defs/calendarId" }
+      ]
+    }
+  }
+}
+

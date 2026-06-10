@@ -1,0 +1,23 @@
+name: Bug
+description: Report a schema, fixture, or tooling bug.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Include commands, schema names, and fixture paths when possible.
+

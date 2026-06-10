@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/planning/explanation-fragment.schema.json",
+  "title": "Explanation Fragment",
+  "type": "object",
+  "description": "Short explanation text attached to a planning object or validation result.",
+  "additionalProperties": false,
+  "properties": {
+    "subject": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" },
+    "text": { "type": "string", "minLength": 1 },
+    "severity": { "type": "string", "enum": ["info", "warning", "error"] }
+  },
+  "required": ["text", "severity"]
+}
+

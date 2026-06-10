@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/github/github-ci-event-source.schema.json",
+  "title": "GitHub CI Event Source",
+  "type": "object",
+  "description": "Imported GitHub CI or workflow run event.",
+  "additionalProperties": false,
+  "properties": {
+    "repository": { "$ref": "https://schemas.ubunow.net/phase1/github/github-repository-source.schema.json" },
+    "runId": { "type": "integer", "minimum": 1 },
+    "status": { "type": "string", "minLength": 1 },
+    "conclusion": { "type": ["string", "null"] },
+    "htmlUrl": { "type": "string", "format": "uri" },
+    "updatedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+  },
+  "required": ["repository", "runId", "status", "htmlUrl", "updatedAt"]
+}
+

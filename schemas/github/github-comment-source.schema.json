@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/github/github-comment-source.schema.json",
+  "title": "GitHub Comment Source",
+  "type": "object",
+  "description": "Imported GitHub issue or pull request comment metadata.",
+  "additionalProperties": false,
+  "properties": {
+    "repository": { "$ref": "https://schemas.ubunow.net/phase1/github/github-repository-source.schema.json" },
+    "commentId": { "type": "integer", "minimum": 1 },
+    "body": { "type": "string" },
+    "htmlUrl": { "type": "string", "format": "uri" },
+    "updatedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+  },
+  "required": ["repository", "commentId", "body", "htmlUrl", "updatedAt"]
+}
+

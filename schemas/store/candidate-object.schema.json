@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/store/candidate-object.schema.json",
+  "title": "Candidate Object",
+  "type": "object",
+  "description": "A proposed object waiting for validation and legitimization.",
+  "additionalProperties": false,
+  "properties": {
+    "candidateId": { "type": "string", "minLength": 1 },
+    "objectType": { "type": "string", "minLength": 1 },
+    "payload": { "type": "object" },
+    "submittedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "authoritySource": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" }
+  },
+  "required": ["candidateId", "objectType", "payload", "submittedAt", "authoritySource"]
+}
+

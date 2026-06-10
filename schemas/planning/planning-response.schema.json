@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/planning/planning-response.schema.json",
+  "title": "Planning Response",
+  "type": "object",
+  "description": "Planner output containing candidate plan material and validation diagnostics.",
+  "additionalProperties": false,
+  "properties": {
+    "requestId": { "type": "string", "minLength": 1 },
+    "respondedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "plan": { "$ref": "https://schemas.ubunow.net/phase1/planning/plan.schema.json" },
+    "validation": { "$ref": "https://schemas.ubunow.net/phase1/planning/validation-result.schema.json" },
+    "explanations": {
+      "type": "array",
+      "items": { "$ref": "https://schemas.ubunow.net/phase1/planning/explanation-fragment.schema.json" }
+    }
+  },
+  "required": ["requestId", "respondedAt", "validation"]
+}
+

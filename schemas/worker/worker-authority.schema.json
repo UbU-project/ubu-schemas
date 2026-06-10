@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/worker/worker-authority.schema.json",
+  "title": "Worker Authority",
+  "type": "object",
+  "description": "Authority context attached to an automation worker submission.",
+  "additionalProperties": false,
+  "properties": {
+    "workerId": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+    "authoritySource": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
+    "delegatedBy": { "$ref": "https://schemas.ubunow.net/phase1/core/identity.schema.json" }
+  },
+  "required": ["workerId", "authoritySource"]
+}
+

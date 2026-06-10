@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/api/risk-report.schema.json",
+  "title": "Risk Report",
+  "type": "object",
+  "description": "API report summarizing risks identified before action or projection.",
+  "additionalProperties": false,
+  "properties": {
+    "generatedAt": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "level": { "type": "string", "enum": ["low", "medium", "high"] },
+    "items": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "required": ["generatedAt", "level", "items"]
+}
+

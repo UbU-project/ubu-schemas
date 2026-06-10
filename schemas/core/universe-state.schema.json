@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/universe-state.schema.json",
+  "title": "Universe State",
+  "type": "object",
+  "description": "A compact collection of active Phase 1 objects for planning or API exchange.",
+  "additionalProperties": false,
+  "properties": {
+    "capturedAt": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "objectives": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/core/objective.schema.json"
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/core/task.schema.json"
+      }
+    }
+  },
+  "required": ["capturedAt", "objectives", "tasks"]
+}
+

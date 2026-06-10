@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json",
+  "title": "Source Reference",
+  "type": "object",
+  "description": "Reference to an external or imported source that informed a UbU object.",
+  "additionalProperties": false,
+  "properties": {
+    "sourceKind": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "required": ["sourceKind", "sourceId"]
+}
+

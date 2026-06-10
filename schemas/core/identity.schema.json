@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/identity.schema.json",
+  "title": "Identity",
+  "type": "object",
+  "description": "A stable actor identity used for attribution, without prescribing an authentication system.",
+  "additionalProperties": false,
+  "properties": {
+    "subjectKey": {
+      "type": "string",
+      "minLength": 1
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["person", "service", "automation_worker", "system"]
+    }
+  },
+  "required": ["subjectKey", "kind"]
+}
+
