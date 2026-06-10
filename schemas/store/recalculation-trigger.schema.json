@@ -3,16 +3,29 @@
   "$id": "https://schemas.ubunow.net/phase1/store/recalculation-trigger.schema.json",
   "title": "Recalculation Trigger",
   "type": "object",
-  "description": "A reason to recalculate derived Phase 1 state.",
+  "description": "A closed-vocabulary trigger for recalculating derived Phase 1 state.",
   "additionalProperties": false,
   "properties": {
     "triggered_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
-    "reason": { "type": "string", "minLength": 1 },
+    "trigger_type": {
+      "type": "string",
+      "enum": [
+        "task_completed",
+        "task_failed",
+        "task_moot",
+        "user_override",
+        "observed_snapshot",
+        "external_event",
+        "github_update",
+        "low_compact_calendar_coverage",
+        "worker_request"
+      ]
+    },
+    "note": { "type": "string", "minLength": 1 },
     "objects": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" }
     }
   },
-  "required": ["triggered_at", "reason"]
+  "required": ["triggered_at", "trigger_type"]
 }
-
