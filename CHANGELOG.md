@@ -3,4 +3,13 @@
 ## 0.1.0
 
 - Initial UbU Phase 1 JSON Schema scaffold.
-
+- S1a (`UBU-D0228`): Converted Phase 1 schema and fixture wire fields to canonical `snake_case`.
+- S1b (`UBU-D0228`): Added generated TypeScript and fixture wire-casing checks to local validation.
+- S2 (`UBU-D0227`): Closed persisted `Task.status` to canonical lifecycle states and enforced `moot_reason_code` rules.
+- S3 (`UBU-D0229`): Expanded the ID registry and object references for Preference, Container, UniverseState, Identity, Relationship, and ExternalEvent; added canonical `UniverseState`.
+- S4: Added planning envelope versioning for planning and repair request/response schemas.
+- S5: Closed recalculation-trigger vocabulary and fixtures.
+- S6: Added snapshot affect content fixtures and schema coverage.
+- S7a (`UBU-D0230`): Added closed policy-summary guardrail members `local_only`, `no_cloud_llm`, and `no_external_export`.
+- S7b (`UBU-D0230`): Added `compartment_boundary_decided` log event vocabulary and required payload provenance.
+- S8 (`UBU-D0226`): Kept `AuthoritySource` as the pure authority-path enum and moved external/source distinctions into provenance `source` and `source_refs`.

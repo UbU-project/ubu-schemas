@@ -3,7 +3,7 @@
   "$id": "https://schemas.ubunow.net/phase1/common/provenance.schema.json",
   "title": "Provenance",
   "type": "object",
-  "description": "Creation and authority metadata for a schema object.",
+  "description": "Creation, authority path, and source-path metadata for a schema object.",
   "additionalProperties": false,
   "properties": {
     "created_at": {
@@ -18,8 +18,32 @@
     },
     "source": {
       "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json"
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json"
+      },
+      "minItems": 1
     }
   },
-  "required": ["created_at", "authority_source"]
+  "required": ["created_at", "authority_source"],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "authority_source": {
+            "enum": ["delegated", "automation_worker"]
+          }
+        },
+        "required": ["authority_source"]
+      },
+      "then": {
+        "anyOf": [
+          { "required": ["source"] },
+          { "required": ["source_refs"] }
+        ]
+      }
+    }
+  ]
 }
-

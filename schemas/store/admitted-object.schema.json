@@ -8,8 +8,8 @@
   "properties": {
     "object": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" },
     "admitted_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
-    "policy_summary": { "$ref": "https://schemas.ubunow.net/phase1/common/policy-summary.schema.json" }
+    "policy_summary": { "$ref": "https://schemas.ubunow.net/phase1/common/policy-summary.schema.json" },
+    "provenance": { "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json" }
   },
-  "required": ["object", "admitted_at"]
+  "required": ["object", "admitted_at", "provenance"]
 }
-

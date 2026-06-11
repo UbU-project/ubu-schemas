@@ -9,7 +9,11 @@
   "observed_at": "2026-06-10T14:30:00Z",
   "provenance": {
     "created_at": "2026-06-10T14:31:00Z",
-    "authority_source": "delegated"
+    "authority_source": "delegated",
+    "source": {
+      "source_kind": "github_issue",
+      "source_id": "UbU-project/ubu-schemas#1",
+      "url": "https://github.com/UbU-project/ubu-schemas/issues/1"
+    }
   }
 }
-
