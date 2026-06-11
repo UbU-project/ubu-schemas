@@ -17,10 +17,18 @@
         "minLength": 1
       }
     },
+    "local_only": {
+      "type": "boolean"
+    },
+    "no_cloud_llm": {
+      "type": "boolean"
+    },
+    "no_external_export": {
+      "type": "boolean"
+    },
     "checked_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     }
   },
   "required": ["legitimization", "checked_at"]
 }
-
