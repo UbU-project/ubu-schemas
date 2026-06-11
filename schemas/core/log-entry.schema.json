@@ -16,6 +16,13 @@
       "type": "string",
       "minLength": 1
     },
+    "event_type": {
+      "type": "string",
+      "enum": ["compartment_boundary_decided"]
+    },
+    "payload": {
+      "type": "object"
+    },
     "logged_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
@@ -23,6 +30,90 @@
       "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json"
     }
   },
-  "required": ["id", "message", "logged_at", "authority_source"]
+  "required": ["id", "logged_at", "authority_source"],
+  "dependentRequired": {
+    "event_type": ["payload"],
+    "payload": ["event_type"]
+  },
+  "allOf": [
+    {
+      "anyOf": [
+        { "required": ["message"] },
+        { "required": ["event_type", "payload"] }
+      ]
+    },
+    {
+      "if": {
+        "required": ["event_type"],
+        "properties": {
+          "event_type": { "const": "compartment_boundary_decided" }
+        }
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "compartment_ref": {
+                "allOf": [
+                  {
+                    "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+                  },
+                  {
+                    "properties": {
+                      "object_type": { "const": "Compartment" }
+                    }
+                  }
+                ]
+              },
+              "member_evaluated": {
+                "type": "string",
+                "enum": ["local_only", "no_cloud_llm", "no_external_export"]
+              },
+              "adjudication_result": {
+                "type": "string",
+                "enum": ["accepted", "needs_review", "rejected"]
+              },
+              "actor_identity_ref": {
+                "allOf": [
+                  {
+                    "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+                  },
+                  {
+                    "properties": {
+                      "object_type": { "const": "Identity" }
+                    }
+                  }
+                ]
+              },
+              "authority_source": {
+                "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "effective_time": {
+                "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+              },
+              "provenance": {
+                "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
+              }
+            },
+            "required": [
+              "compartment_ref",
+              "member_evaluated",
+              "adjudication_result",
+              "actor_identity_ref",
+              "authority_source",
+              "reason",
+              "effective_time",
+              "provenance"
+            ]
+          }
+        }
+      }
+    }
+  ]
 }
-

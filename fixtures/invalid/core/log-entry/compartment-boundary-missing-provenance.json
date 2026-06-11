@@ -1,0 +1,21 @@
+{
+  "id": "log_018f3c8e9b2a7c4d8f1e2a3b4c5d6e82",
+  "event_type": "compartment_boundary_decided",
+  "payload": {
+    "compartment_ref": {
+      "id": "comp_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+      "object_type": "Compartment"
+    },
+    "member_evaluated": "no_external_export",
+    "adjudication_result": "rejected",
+    "actor_identity_ref": {
+      "id": "identity_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+      "object_type": "Identity"
+    },
+    "authority_source": "policy",
+    "reason": "External export is not permitted for this compartment.",
+    "effective_time": "2026-06-10T14:30:00Z"
+  },
+  "logged_at": "2026-06-10T14:30:00Z",
+  "authority_source": "policy"
+}

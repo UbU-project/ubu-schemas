@@ -1,0 +1,29 @@
+{
+  "id": "log_018f3c8e9b2a7c4d8f1e2a3b4c5d6e80",
+  "subject": {
+    "id": "comp_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+    "object_type": "Compartment"
+  },
+  "event_type": "compartment_boundary_decided",
+  "payload": {
+    "compartment_ref": {
+      "id": "comp_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+      "object_type": "Compartment"
+    },
+    "member_evaluated": "no_cloud_llm",
+    "adjudication_result": "accepted",
+    "actor_identity_ref": {
+      "id": "identity_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+      "object_type": "Identity"
+    },
+    "authority_source": "policy",
+    "reason": "Compartment policy requires local inference for this member.",
+    "effective_time": "2026-06-10T14:30:00Z",
+    "provenance": {
+      "created_at": "2026-06-10T14:30:00Z",
+      "authority_source": "policy"
+    }
+  },
+  "logged_at": "2026-06-10T14:30:00Z",
+  "authority_source": "policy"
+}
