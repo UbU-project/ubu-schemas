@@ -9,6 +9,9 @@
     "index": { "type": "integer", "minimum": 0 },
     "task_id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
     "summary": { "type": "string", "minLength": 1 },
+    "start": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "end": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "static_anchor": { "type": "boolean" },
     "depends_on": {
       "type": "array",
       "items": { "type": "integer", "minimum": 0 }
@@ -16,4 +19,3 @@
   },
   "required": ["index", "summary"]
 }
-

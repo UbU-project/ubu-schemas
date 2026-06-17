@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- S9: Added optional timed placement fields on `plan-step` and optional `supersedes_plan_id` on `plan`, keeping the timed Plan canonical without expanding later-phase planning fields.
+
 ## 0.1.0
 
 - Initial UbU Phase 1 JSON Schema scaffold.

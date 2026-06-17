@@ -8,6 +8,7 @@
   "properties": {
     "id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
     "objective_id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+    "supersedes_plan_id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
     "status": { "type": "string", "enum": ["candidate", "admitted", "rejected", "superseded"] },
     "steps": {
       "type": "array",
@@ -17,4 +18,3 @@
   },
   "required": ["id", "status", "steps", "created_at"]
 }
-
