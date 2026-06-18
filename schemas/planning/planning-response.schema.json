@@ -11,10 +11,87 @@
     "responded_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "plan": { "$ref": "https://schemas.ubunow.net/phase1/planning/plan.schema.json" },
     "validation": { "$ref": "https://schemas.ubunow.net/phase1/planning/validation-result.schema.json" },
+    "affect_legitimization": {
+      "$ref": "#/$defs/affect_legitimization"
+    },
     "explanations": {
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/planning/explanation-fragment.schema.json" }
     }
   },
-  "required": ["schema_version", "request_id", "responded_at", "validation"]
+  "required": ["schema_version", "request_id", "responded_at", "validation"],
+  "$defs": {
+    "affect_dimension_name": {
+      "type": "string",
+      "enum": ["energy", "stress", "mood_intensity"]
+    },
+    "affect_legitimization": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dimension_satisfaction": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "energy": {
+              "$ref": "#/$defs/affect_dimension_satisfaction"
+            },
+            "stress": {
+              "$ref": "#/$defs/affect_dimension_satisfaction"
+            },
+            "mood_intensity": {
+              "$ref": "#/$defs/affect_dimension_satisfaction"
+            }
+          },
+          "required": ["energy", "stress", "mood_intensity"]
+        },
+        "affect_feasible": {
+          "type": "boolean"
+        },
+        "affect_margin": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "violated_dimensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/affect_dimension_name"
+          },
+          "uniqueItems": true
+        },
+        "legitimization_result": {
+          "type": "string",
+          "enum": ["passed", "failed", "needs_clarification"]
+        },
+        "affect_mode": {
+          "type": "string",
+          "enum": ["enforce", "warn_only"]
+        }
+      },
+      "required": [
+        "dimension_satisfaction",
+        "affect_feasible",
+        "affect_margin",
+        "violated_dimensions",
+        "legitimization_result",
+        "affect_mode"
+      ]
+    },
+    "affect_dimension_satisfaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dimension": {
+          "$ref": "#/$defs/affect_dimension_name"
+        },
+        "satisfaction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": ["dimension", "satisfaction"]
+    }
+  }
 }

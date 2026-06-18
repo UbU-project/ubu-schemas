@@ -8,15 +8,18 @@
     "dimensions": {
       "energy": {
         "dimension": "energy",
-        "value": 4.5
+        "direction": "higher_is_better",
+        "value": 4.0
       },
       "stress": {
         "dimension": "stress",
-        "value": 6.5
+        "direction": "lower_is_better",
+        "value": 7.0
       },
       "mood_intensity": {
         "dimension": "mood_intensity",
-        "value": 7.0
+        "direction": "lower_is_better",
+        "value": 8.0
       }
     }
   }

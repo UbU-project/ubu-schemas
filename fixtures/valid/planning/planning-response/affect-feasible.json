@@ -1,0 +1,41 @@
+{
+  "schema_version": "planning-kernel-contract/0.1",
+  "request_id": "req-affect-1",
+  "responded_at": "2026-06-10T14:31:00Z",
+  "plan": {
+    "id": "plan_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+    "status": "candidate",
+    "steps": [
+      {
+        "index": 0,
+        "summary": "Add schema files"
+      }
+    ],
+    "created_at": "2026-06-10T14:31:00Z"
+  },
+  "validation": {
+    "valid": true,
+    "diagnostics": []
+  },
+  "affect_legitimization": {
+    "dimension_satisfaction": {
+      "energy": {
+        "dimension": "energy",
+        "satisfaction": 0.5826
+      },
+      "stress": {
+        "dimension": "stress",
+        "satisfaction": 0.5826
+      },
+      "mood_intensity": {
+        "dimension": "mood_intensity",
+        "satisfaction": 0.6608
+      }
+    },
+    "affect_feasible": true,
+    "affect_margin": 0.0826,
+    "violated_dimensions": [],
+    "legitimization_result": "passed",
+    "affect_mode": "enforce"
+  }
+}

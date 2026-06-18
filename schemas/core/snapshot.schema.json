@@ -62,51 +62,13 @@
           "type": "string",
           "enum": ["energy", "stress", "mood_intensity"]
         },
-        "direction": {
-          "type": "string",
-          "enum": ["higher_is_better", "lower_is_better"]
-        },
         "value": {
           "type": "number",
           "minimum": 0,
           "maximum": 10
-        },
-        "scale": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "min": {
-              "type": "number",
-              "const": 0
-            },
-            "max": {
-              "type": "number",
-              "const": 10
-            }
-          },
-          "required": ["min", "max"]
-        },
-        "threshold": {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "warning_delta": {
-              "type": "number",
-              "minimum": 0
-            },
-            "critical_delta": {
-              "type": "number",
-              "minimum": 0
-            }
-          },
-          "required": ["warning_delta", "critical_delta"]
-        },
-        "freshness_seconds": {
-          "type": "integer",
-          "minimum": 0
         }
       },
-      "required": ["dimension", "direction", "value", "scale", "threshold"]
+      "required": ["dimension", "value"]
     }
   }
 }

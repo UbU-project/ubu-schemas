@@ -8,42 +8,15 @@
     "dimensions": {
       "energy": {
         "dimension": "energy",
-        "direction": "higher_is_better",
-        "value": 4.0,
-        "scale": {
-          "min": 0,
-          "max": 10
-        },
-        "threshold": {
-          "warning_delta": 1.5,
-          "critical_delta": 0.5
-        }
+        "value": 4.0
       },
       "stress": {
         "dimension": "stress",
-        "direction": "lower_is_better",
-        "value": 7.0,
-        "scale": {
-          "min": 0,
-          "max": 10
-        },
-        "threshold": {
-          "warning_delta": 1.5,
-          "critical_delta": 0.5
-        }
+        "value": 7.0
       },
       "mood_intensity": {
         "dimension": "mood_intensity",
-        "direction": "higher_is_better",
-        "value": 8.0,
-        "scale": {
-          "min": 0,
-          "max": 10
-        },
-        "threshold": {
-          "warning_delta": 1.5,
-          "critical_delta": 0.5
-        }
+        "value": 8.0
       }
     }
   }

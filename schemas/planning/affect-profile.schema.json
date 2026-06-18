@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/planning/affect-profile.schema.json",
+  "title": "Affect Profile",
+  "type": "object",
+  "description": "Standing affect tolerances used by the planning kernel to evaluate point-in-time affect observations.",
+  "additionalProperties": false,
+  "properties": {
+    "dimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "energy": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dimension": {
+              "type": "string",
+              "const": "energy"
+            },
+            "direction": {
+              "type": "string",
+              "enum": ["higher_is_better"]
+            },
+            "location": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "scale": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "freshness_seconds": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": ["dimension", "direction", "location", "scale", "threshold"]
+        },
+        "stress": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dimension": {
+              "type": "string",
+              "const": "stress"
+            },
+            "direction": {
+              "type": "string",
+              "enum": ["lower_is_better"]
+            },
+            "location": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "scale": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "freshness_seconds": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": ["dimension", "direction", "location", "scale", "threshold"]
+        },
+        "mood_intensity": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "dimension": {
+              "type": "string",
+              "const": "mood_intensity"
+            },
+            "direction": {
+              "type": "string",
+              "enum": ["lower_is_better"]
+            },
+            "location": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "scale": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "threshold": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "freshness_seconds": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": ["dimension", "direction", "location", "scale", "threshold"]
+        }
+      },
+      "required": ["energy", "stress", "mood_intensity"]
+    }
+  },
+  "required": ["dimensions"]
+}

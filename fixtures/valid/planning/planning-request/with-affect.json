@@ -1,0 +1,57 @@
+{
+  "schema_version": "planning-kernel-contract/0.1",
+  "request_id": "req-affect-1",
+  "requested_at": "2026-06-10T14:30:00Z",
+  "authority_source": "user",
+  "task_specs": [
+    {
+      "title": "Add schemas",
+      "estimate": {
+        "seconds": 3600
+      }
+    }
+  ],
+  "affect_profile": {
+    "dimensions": {
+      "energy": {
+        "dimension": "energy",
+        "direction": "higher_is_better",
+        "location": 4.0,
+        "scale": 1.5,
+        "threshold": 0.5
+      },
+      "stress": {
+        "dimension": "stress",
+        "direction": "lower_is_better",
+        "location": 7.0,
+        "scale": 1.5,
+        "threshold": 0.5
+      },
+      "mood_intensity": {
+        "dimension": "mood_intensity",
+        "direction": "lower_is_better",
+        "location": 8.0,
+        "scale": 1.5,
+        "threshold": 0.5
+      }
+    }
+  },
+  "affect_observation": {
+    "source_kind": "live_observation",
+    "observed_at": "2026-06-10T14:29:00Z",
+    "dimensions": {
+      "energy": {
+        "dimension": "energy",
+        "value": 4.5
+      },
+      "stress": {
+        "dimension": "stress",
+        "value": 6.5
+      },
+      "mood_intensity": {
+        "dimension": "mood_intensity",
+        "value": 7.0
+      }
+    }
+  }
+}

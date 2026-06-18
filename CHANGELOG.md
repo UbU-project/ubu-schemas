@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- S10 (`UBU-D0236`): Added `planning/affect-profile`, narrowed `core/snapshot` affect payloads to observation-only readings, corrected `mood_intensity` to `lower_is_better` in affect profiles, and added planning-response affect legitimization fields.
+
 ## 0.1.1
 
 - S9: Added optional timed placement fields on `plan-step` and optional `supersedes_plan_id` on `plan`, keeping the timed Plan canonical without expanding later-phase planning fields.

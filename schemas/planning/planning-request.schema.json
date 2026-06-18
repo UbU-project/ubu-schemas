@@ -15,7 +15,56 @@
       "type": "array",
       "items": { "$ref": "https://schemas.ubunow.net/phase1/planning/task-spec.schema.json" }
     },
-    "state": { "$ref": "https://schemas.ubunow.net/phase1/core/universe-state.schema.json" }
+    "state": { "$ref": "https://schemas.ubunow.net/phase1/core/universe-state.schema.json" },
+    "affect_profile": { "$ref": "https://schemas.ubunow.net/phase1/planning/affect-profile.schema.json" },
+    "affect_observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_kind": {
+          "type": "string",
+          "enum": ["live_observation", "bootstrap_default_profile"]
+        },
+        "observed_at": {
+          "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+        },
+        "dimensions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "energy": {
+              "$ref": "#/$defs/affect_dimension_observation"
+            },
+            "stress": {
+              "$ref": "#/$defs/affect_dimension_observation"
+            },
+            "mood_intensity": {
+              "$ref": "#/$defs/affect_dimension_observation"
+            }
+          },
+          "required": ["energy", "stress", "mood_intensity"]
+        }
+      },
+      "required": ["source_kind", "observed_at", "dimensions"]
+    }
   },
-  "required": ["schema_version", "request_id", "requested_at", "authority_source"]
+  "required": ["schema_version", "request_id", "requested_at", "authority_source"],
+  "$defs": {
+    "affect_dimension_observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dimension": {
+          "type": "string",
+          "enum": ["energy", "stress", "mood_intensity"]
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10
+        }
+      },
+      "required": ["dimension", "value"]
+    }
+  }
 }
