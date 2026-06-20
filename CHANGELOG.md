@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+- S11 (`UBU-D0237`): Removed the deprecated thin `planning-request`, `planning-response`, and `task-spec` schema stubs and their dedicated fixtures after verifying no retained live artifact references them.
+
 ## 0.1.2
 
 - S10 (`UBU-D0236`): Added `planning/affect-profile`, narrowed `core/snapshot` affect payloads to observation-only readings, corrected `mood_intensity` to `lower_is_better` in affect profiles, and added planning-response affect legitimization fields.
