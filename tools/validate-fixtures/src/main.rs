@@ -1,13 +1,72 @@
 use std::{collections::HashMap, error::Error, fs, path::Path};
 
 use anyhow::{anyhow, bail, Context, Result};
-use jsonschema::{Retrieve, Uri};
+use jsonschema::{Keyword, Retrieve, Uri, ValidationError};
 use serde_json::Value;
+use std::collections::HashSet;
 use walkdir::WalkDir;
 
 #[derive(Clone, Debug)]
 struct InMemoryRetriever {
     schemas: HashMap<String, Value>,
+}
+
+struct StrictlyIncreasing {
+    properties: Vec<String>,
+}
+
+impl Keyword for StrictlyIncreasing {
+    fn validate<'i>(&self, instance: &'i Value) -> Result<(), ValidationError<'i>> {
+        if self.is_valid(instance) {
+            Ok(())
+        } else {
+            Err(ValidationError::custom(format!(
+                "properties must be strictly increasing: {}",
+                self.properties.join(" < ")
+            )))
+        }
+    }
+
+    fn is_valid(&self, instance: &Value) -> bool {
+        let Some(object) = instance.as_object() else {
+            return true;
+        };
+        let values = self
+            .properties
+            .iter()
+            .map(|property| object.get(property).and_then(Value::as_f64))
+            .collect::<Option<Vec<_>>>();
+        values.is_none_or(|values| values.windows(2).all(|pair| pair[0] < pair[1]))
+    }
+}
+
+struct UniqueBy {
+    property: String,
+}
+
+impl Keyword for UniqueBy {
+    fn validate<'i>(&self, instance: &'i Value) -> Result<(), ValidationError<'i>> {
+        if self.is_valid(instance) {
+            Ok(())
+        } else {
+            Err(ValidationError::custom(format!(
+                "array items must have unique `{}` values",
+                self.property
+            )))
+        }
+    }
+
+    fn is_valid(&self, instance: &Value) -> bool {
+        let Some(items) = instance.as_array() else {
+            return true;
+        };
+        let mut seen = HashSet::new();
+        items.iter().all(|item| {
+            item.get(&self.property)
+                .and_then(Value::as_str)
+                .is_none_or(|value| seen.insert(value))
+        })
+    }
 }
 
 impl Retrieve for InMemoryRetriever {
@@ -85,6 +144,29 @@ fn validate_fixture_tree(
         let validator = jsonschema::draft202012::options()
             .with_retriever(retriever.clone())
             .should_validate_formats(true)
+            .with_keyword("x-ubu-strictly-increasing", |_, value, _| {
+                let properties = value
+                    .as_array()
+                    .and_then(|values| {
+                        values
+                            .iter()
+                            .map(Value::as_str)
+                            .map(|value| value.map(str::to_owned))
+                            .collect::<Option<Vec<_>>>()
+                    })
+                    .ok_or_else(|| {
+                        ValidationError::custom(
+                            "x-ubu-strictly-increasing must be an array of property names",
+                        )
+                    })?;
+                Ok(Box::new(StrictlyIncreasing { properties }))
+            })
+            .with_keyword("x-ubu-unique-by", |_, value, _| {
+                let property = value.as_str().map(str::to_owned).ok_or_else(|| {
+                    ValidationError::custom("x-ubu-unique-by must be a property name")
+                })?;
+                Ok(Box::new(UniqueBy { property }))
+            })
             .build(schema)
             .with_context(|| format!("failed to build validator for {}", path.display()))?;
 

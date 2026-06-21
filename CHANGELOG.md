@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- S12 (`UBU-D0239`): Added optional fixed and shifted-log-normal Task duration estimates and optional unsigned correlation-group memberships.
+
 ## 0.1.3
 
 - S11 (`UBU-D0237`): Removed the deprecated thin `planning-request`, `planning-response`, and `task-spec` schema stubs and their dedicated fixtures after verifying no retained live artifact references them.

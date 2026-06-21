@@ -37,6 +37,72 @@
     "due_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
+    "duration_estimate": {
+      "description": "Optional duration model. When absent, downstream planning applies its fixed default.",
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "fixed"
+            },
+            "seconds": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": ["type", "seconds"]
+        },
+        {
+          "type": "object",
+          "description": "A shifted log-normal estimate ordered as 0 <= min_seconds < mode_seconds < p95_seconds.",
+          "additionalProperties": false,
+          "x-ubu-strictly-increasing": ["min_seconds", "mode_seconds", "p95_seconds"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "shifted_lognormal_p95"
+            },
+            "min_seconds": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "mode_seconds": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            },
+            "p95_seconds": {
+              "type": "integer",
+              "exclusiveMinimum": 0
+            }
+          },
+          "required": ["type", "min_seconds", "mode_seconds", "p95_seconds"]
+        }
+      ]
+    },
+    "correlation_groups": {
+      "type": "array",
+      "description": "Optional unsigned correlation memberships. When absent, the Task is independent; group values must be unique within this array.",
+      "uniqueItems": true,
+      "x-ubu-unique-by": "group",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "group": {
+            "type": "string"
+          },
+          "strength": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": ["group", "strength"]
+      }
+    },
     "provenance": {
       "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
     }

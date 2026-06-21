@@ -1,0 +1,19 @@
+{
+  "id": "task_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+  "title": "Duplicate correlation group",
+  "status": "active",
+  "correlation_groups": [
+    {
+      "group": "shared-test-environment",
+      "strength": 0.5
+    },
+    {
+      "group": "shared-test-environment",
+      "strength": 0.75
+    }
+  ],
+  "provenance": {
+    "created_at": "2026-06-10T14:30:00Z",
+    "authority_source": "user"
+  }
+}

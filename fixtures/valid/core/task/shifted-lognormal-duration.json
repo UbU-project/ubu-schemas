@@ -1,0 +1,25 @@
+{
+  "id": "task_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+  "title": "Investigate intermittent failure",
+  "status": "active",
+  "duration_estimate": {
+    "type": "shifted_lognormal_p95",
+    "min_seconds": 300,
+    "mode_seconds": 900,
+    "p95_seconds": 3600
+  },
+  "correlation_groups": [
+    {
+      "group": "shared-test-environment",
+      "strength": 0.75
+    },
+    {
+      "group": "release-readiness",
+      "strength": 1
+    }
+  ],
+  "provenance": {
+    "created_at": "2026-06-10T14:30:00Z",
+    "authority_source": "user"
+  }
+}
