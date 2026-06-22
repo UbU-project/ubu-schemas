@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.5
+
+- S13: Removed the vestigial `candidate-score`, `repair-request`, `repair-response`, `validation-result`, and `skeleton-failure-diagnostic` planning schema stubs and their dedicated fixtures after verifying no retained live artifact references them.
+
 ## 0.1.4
 
 - S12 (`UBU-D0239`): Added optional fixed and shifted-log-normal Task duration estimates and optional unsigned correlation-group memberships.
