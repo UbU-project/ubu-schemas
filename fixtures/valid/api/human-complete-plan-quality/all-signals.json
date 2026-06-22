@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-06-22T14:30:00Z",
+  "plan_ref": {
+    "id": "plan_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+    "object_type": "Plan"
+  },
+  "feedback_latency": 1800,
+  "checkpoint_coverage": "sparse",
+  "affect_margin": 0.15,
+  "violated_dimensions": ["stress"],
+  "failure_pattern": "missing_dependencies",
+  "stretch_pressure": "sustainable_stretch",
+  "post_plan_state_delta": "at_risk",
+  "revision_suggestions": [
+    "Add an observation checkpoint before the external dependency is required.",
+    "Reduce the final work block to preserve affect margin."
+  ]
+}

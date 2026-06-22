@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-06-22T14:30:00Z",
+  "level": "high",
+  "findings": [
+    {
+      "category": "deadline_risk",
+      "severity": "high",
+      "blocking": true,
+      "detail": "The critical path extends beyond the committed deadline.",
+      "subject_ref": {
+        "id": "plan_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+        "object_type": "Plan"
+      }
+    },
+    {
+      "category": "dependency_fragility",
+      "severity": "medium",
+      "blocking": false,
+      "detail": "Two near-term steps depend on the same unverified external input."
+    },
+    {
+      "category": "low_coverage",
+      "severity": "low",
+      "blocking": false,
+      "detail": "The final step has no intermediate checkpoint."
+    }
+  ]
+}

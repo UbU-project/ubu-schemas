@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/api/human-complete-plan-quality.schema.json",
+  "title": "Human Complete Plan Quality",
+  "type": "object",
+  "description": "Structured human-complete assessment of the six plan-quality signals.",
+  "additionalProperties": false,
+  "properties": {
+    "generated_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "plan_ref": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" },
+    "feedback_latency": { "type": "integer", "minimum": 0 },
+    "checkpoint_coverage": { "type": "string", "enum": ["adequate", "sparse", "absent"] },
+    "affect_margin": { "type": "number" },
+    "violated_dimensions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "failure_pattern": {
+      "type": "string",
+      "enum": ["none", "wrong_estimates", "missing_dependencies", "stale_affect", "interruption", "overload", "changed_objective"]
+    },
+    "stretch_pressure": {
+      "type": "string",
+      "enum": ["comfort", "sustainable_stretch", "destructive_pressure"]
+    },
+    "post_plan_state_delta": {
+      "type": "string",
+      "enum": ["better", "neutral", "depleted", "at_risk"]
+    },
+    "revision_suggestions": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "required": [
+    "generated_at",
+    "plan_ref",
+    "feedback_latency",
+    "checkpoint_coverage",
+    "affect_margin",
+    "failure_pattern",
+    "stretch_pressure",
+    "post_plan_state_delta",
+    "revision_suggestions"
+  ]
+}

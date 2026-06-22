@@ -8,11 +8,34 @@
   "properties": {
     "generated_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "level": { "type": "string", "enum": ["low", "medium", "high"] },
-    "items": {
+    "findings": {
       "type": "array",
-      "items": { "type": "string", "minLength": 1 }
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "type": "string",
+            "enum": [
+              "deadline_risk",
+              "dependency_fragility",
+              "worker_bottleneck",
+              "stale_affect",
+              "affect_margin",
+              "destructive_pressure",
+              "post_plan_depletion",
+              "low_coverage",
+              "skeleton_failure"
+            ]
+          },
+          "severity": { "type": "string", "enum": ["low", "medium", "high"] },
+          "blocking": { "type": "boolean" },
+          "detail": { "type": "string", "minLength": 1 },
+          "subject_ref": { "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json" }
+        },
+        "required": ["category", "severity", "blocking", "detail"]
+      }
     }
   },
-  "required": ["generated_at", "level", "items"]
+  "required": ["generated_at", "level", "findings"]
 }
-

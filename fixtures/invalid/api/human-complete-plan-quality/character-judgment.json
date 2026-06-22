@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-06-22T14:30:00Z",
+  "plan_ref": {
+    "id": "plan_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+    "object_type": "Plan"
+  },
+  "feedback_latency": 1800,
+  "checkpoint_coverage": "adequate",
+  "affect_margin": 0.5,
+  "failure_pattern": "carelessness",
+  "stretch_pressure": "comfort",
+  "post_plan_state_delta": "better",
+  "revision_suggestions": []
+}

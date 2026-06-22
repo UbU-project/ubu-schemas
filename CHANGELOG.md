@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.6
+
+- S14 (`UBU-D0240`): Enriched API risk reports with categorized, severity-tagged findings and added the structured human-complete plan-quality schema for the six plan-quality signals.
+
 ## 0.1.5
 
 - S13: Removed the vestigial `candidate-score`, `repair-request`, `repair-response`, `validation-result`, and `skeleton-failure-diagnostic` planning schema stubs and their dedicated fixtures after verifying no retained live artifact references them.
