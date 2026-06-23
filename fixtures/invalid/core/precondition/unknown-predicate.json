@@ -1,0 +1,5 @@
+{
+  "target": "facts.task.write_validation_cli.status",
+  "predicate": "greater_than",
+  "expected": 0.5
+}

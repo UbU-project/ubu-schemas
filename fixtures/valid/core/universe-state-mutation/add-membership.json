@@ -1,0 +1,6 @@
+{
+  "operation": "add_membership",
+  "target": "set_memberships.task.write_validation_cli.labels",
+  "payload": "schemas",
+  "note": "Add a normalized label."
+}

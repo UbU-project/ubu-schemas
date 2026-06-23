@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/precondition.schema.json",
+  "title": "Precondition",
+  "type": "object",
+  "description": "Recursive precondition tree with all_of/any_of composition and leaf predicates over UniverseState targets.",
+  "additionalProperties": false,
+  "properties": {
+    "all_of": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
+      },
+      "minItems": 1
+    },
+    "any_of": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
+      },
+      "minItems": 1
+    },
+    "target": {
+      "type": "string",
+      "pattern": "^(facts|numeric_values|set_memberships|event_markers)\\.[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*$"
+    },
+    "predicate": {
+      "type": "string",
+      "enum": ["equals", "member_of", "absent"]
+    },
+    "expected": {
+      "description": "Expected JSON value for predicates that compare against a value."
+    }
+  },
+  "anyOf": [
+    {
+      "required": ["all_of"]
+    },
+    {
+      "required": ["any_of"]
+    },
+    {
+      "required": ["target", "predicate"]
+    }
+  ]
+}

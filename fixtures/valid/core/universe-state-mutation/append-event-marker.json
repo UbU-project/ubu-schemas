@@ -1,0 +1,8 @@
+{
+  "operation": "append_event_marker",
+  "target": "event_markers.task.write_validation_cli.timeline",
+  "payload": {
+    "kind": "reviewed",
+    "at": "2026-06-22T14:30:00Z"
+  }
+}

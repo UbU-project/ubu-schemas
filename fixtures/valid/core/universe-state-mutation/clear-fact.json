@@ -1,0 +1,5 @@
+{
+  "operation": "clear_fact",
+  "target": "facts.task.write_validation_cli.status",
+  "note": "Remove a stale status fact."
+}

@@ -1,0 +1,4 @@
+{
+  "operation": "set_fact",
+  "target": "facts.task.write_validation_cli.status"
+}

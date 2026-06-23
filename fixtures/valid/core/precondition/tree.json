@@ -1,0 +1,22 @@
+{
+  "all_of": [
+    {
+      "target": "facts.task.write_validation_cli.status",
+      "predicate": "equals",
+      "expected": "active"
+    },
+    {
+      "any_of": [
+        {
+          "target": "set_memberships.task.write_validation_cli.labels",
+          "predicate": "member_of",
+          "expected": "schemas"
+        },
+        {
+          "target": "facts.task.write_validation_cli.blocker",
+          "predicate": "absent"
+        }
+      ]
+    }
+  ]
+}

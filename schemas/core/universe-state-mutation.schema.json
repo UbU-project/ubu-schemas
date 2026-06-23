@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/universe-state-mutation.schema.json",
+  "title": "Universe State Mutation",
+  "type": "object",
+  "description": "Single UniverseState mutation item. Per-operation payload typing is enforced in ubu-core.",
+  "additionalProperties": false,
+  "properties": {
+    "operation": {
+      "type": "string",
+      "enum": [
+        "set_fact",
+        "clear_fact",
+        "increment_numeric",
+        "decrement_numeric",
+        "add_membership",
+        "remove_membership",
+        "append_event_marker"
+      ]
+    },
+    "target": {
+      "type": "string",
+      "description": "Dotted path whose first segment is the target UniverseState collection.",
+      "pattern": "^(facts|numeric_values|set_memberships|event_markers)\\.[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*$"
+    },
+    "payload": {
+      "description": "Mutation payload. Required for every operation except clear_fact."
+    },
+    "note": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": ["operation", "target"],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "not": {
+              "const": "clear_fact"
+            }
+          }
+        },
+        "required": ["operation"]
+      },
+      "then": {
+        "required": ["payload"]
+      }
+    }
+  ]
+}

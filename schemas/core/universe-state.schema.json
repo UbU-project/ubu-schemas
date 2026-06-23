@@ -3,7 +3,7 @@
   "$id": "https://schemas.ubunow.net/phase1/core/universe-state.schema.json",
   "title": "Universe State",
   "type": "object",
-  "description": "Canonical Phase 1 UniverseState facts object for planning or API exchange. This is not a snapshot-view placeholder.",
+  "description": "Canonical Phase 1 UniverseState facts container for planning or API exchange, represented as four open fact collections plus source and confidence summaries.",
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -12,18 +12,73 @@
     "captured_at": {
       "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
     },
-    "objectives": {
-      "type": "array",
-      "items": {
-        "$ref": "https://schemas.ubunow.net/phase1/core/objective.schema.json"
+    "facts": {
+      "type": "object",
+      "description": "Open map of namespaced dotted fact keys to arbitrary JSON values.",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)+$"
+      },
+      "additionalProperties": true
+    },
+    "numeric_values": {
+      "type": "object",
+      "description": "Open map of namespaced dotted numeric keys to number values.",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)+$"
+      },
+      "additionalProperties": {
+        "type": "number"
       }
     },
-    "tasks": {
-      "type": "array",
-      "items": {
-        "$ref": "https://schemas.ubunow.net/phase1/core/task.schema.json"
+    "set_memberships": {
+      "type": "object",
+      "description": "Open map of namespaced dotted set keys to arrays of JSON scalar members.",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)+$"
+      },
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": ["string", "number", "boolean", "null"]
+        }
       }
+    },
+    "event_markers": {
+      "type": "object",
+      "description": "Open map of namespaced dotted event keys to arrays of loosely typed marker objects.",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)+$"
+      },
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    },
+    "source_summary": {
+      "type": "object",
+      "description": "Loosely typed summary of sources that informed this UniverseState.",
+      "additionalProperties": true
+    },
+    "confidence_summary": {
+      "type": "object",
+      "description": "Optional loosely typed confidence summary for the container.",
+      "additionalProperties": true
     }
   },
-  "required": ["id", "captured_at", "objectives", "tasks"]
+  "required": [
+    "id",
+    "captured_at",
+    "facts",
+    "numeric_values",
+    "set_memberships",
+    "event_markers",
+    "source_summary"
+  ]
 }

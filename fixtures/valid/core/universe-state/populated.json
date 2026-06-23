@@ -1,0 +1,41 @@
+{
+  "id": "ustate_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+  "captured_at": "2026-06-22T14:30:00Z",
+  "facts": {
+    "task.write_validation_cli.status": "active",
+    "objective.phase1_schema_scaffold.accepted": true,
+    "planning.current_plan": {
+      "id": "plan_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+      "risk": "medium"
+    }
+  },
+  "numeric_values": {
+    "task.write_validation_cli.progress": 0.65,
+    "planning.capacity.available_minutes": 90
+  },
+  "set_memberships": {
+    "task.write_validation_cli.labels": ["schemas", "validation", "phase1"],
+    "objective.phase1_schema_scaffold.blockers": []
+  },
+  "event_markers": {
+    "task.write_validation_cli.timeline": [
+      {
+        "kind": "created",
+        "at": "2026-06-10T14:30:00Z"
+      },
+      {
+        "kind": "reviewed",
+        "reviewer": "maintainer",
+        "accepted": true
+      }
+    ]
+  },
+  "source_summary": {
+    "source_kinds": ["user", "system"],
+    "captured_by": "bootstrap"
+  },
+  "confidence_summary": {
+    "overall": 0.82,
+    "notes": ["derived from recent accepted inputs"]
+  }
+}

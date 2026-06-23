@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.7
+
+- S15 (`UBU-D0241`): Reshaped `core/universe-state` into the four-collection facts container and added UniverseState mutation-item and precondition schemas with fixtures.
+
 ## 0.1.6
 
 - S14 (`UBU-D0240`): Enriched API risk reports with categorized, severity-tagged findings and added the structured human-complete plan-quality schema for the six plan-quality signals.
