@@ -103,6 +103,9 @@
         "required": ["group", "strength"]
       }
     },
+    "preconditions": {
+      "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
+    },
     "provenance": {
       "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
     }

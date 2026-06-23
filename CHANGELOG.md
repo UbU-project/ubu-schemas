@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.8
+
+- S16 (`UBU-D0242`): Added optional Task `preconditions` referencing the recursive core precondition schema.
+
 ## 0.1.7
 
 - S15 (`UBU-D0241`): Reshaped `core/universe-state` into the four-collection facts container and added UniverseState mutation-item and precondition schemas with fixtures.
