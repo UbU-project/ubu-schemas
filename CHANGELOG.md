@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.9
+
+- S17 (`UBU-D0242`): Added optional Task `effects` object with a nullable `success_probability` and a `mutations` list referencing the core UniverseState mutation schema.
+
 ## 0.1.8
 
 - S16 (`UBU-D0242`): Added optional Task `preconditions` referencing the recursive core precondition schema.

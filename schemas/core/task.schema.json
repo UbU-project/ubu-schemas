@@ -106,6 +106,26 @@
     "preconditions": {
       "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
     },
+    "effects": {
+      "type": "object",
+      "description": "Optional predicted mutation of UniverseState if the Task succeeds. When absent, completion mutates nothing.",
+      "additionalProperties": false,
+      "properties": {
+        "success_probability": {
+          "description": "Optional planning metadata: probability the Task succeeds, in [0, 1]. May be null.",
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "mutations": {
+          "type": "array",
+          "items": {
+            "$ref": "https://schemas.ubunow.net/phase1/core/universe-state-mutation.schema.json"
+          }
+        }
+      },
+      "required": ["mutations"]
+    },
     "provenance": {
       "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
     }
