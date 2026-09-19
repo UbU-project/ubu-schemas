@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/store/mutation-envelope.schema.json",
+  "title": "Mutation Envelope",
+  "description": "Provenance, preconditions, idempotency, and independent domain and admission timestamps for a canonical mutation. Policy-dependent callers must supply non-empty observed_policy_versions.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "idempotency_key": { "type": "string", "minLength": 1 },
+    "origin_device_id": {
+      "description": "Stable registered identifier from operator-controlled local registration material; not a canonical UbU object id.",
+      "type": "string",
+      "minLength": 1
+    },
+    "actor_identity_id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json",
+      "pattern": "^identity_"
+    },
+    "authority_source": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
+    "created_time": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "effective_time": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "recorded_time": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
+    "observed_versions": {
+      "type": "object",
+      "propertyNames": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
+      "additionalProperties": {
+        "type": "string",
+        "anyOf": [ { "pattern": "^v[0-9]+$" }, { "const": "absent" } ]
+      }
+    },
+    "observed_policy_versions": {
+      "description": "Policy reference to version reference; required and non-empty at policy-dependent call sites.",
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "execution_context": {
+      "description": "Optional non-authoritative execution and backend provenance; cannot replace device, actor, or authority.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "context_label": { "type": "string" },
+        "backend_id": { "type": "string" },
+        "provider_id": { "type": "string" }
+      }
+    }
+  },
+  "required": [
+    "idempotency_key", "observed_versions", "origin_device_id", "actor_identity_id",
+    "authority_source", "created_time", "effective_time", "recorded_time"
+  ]
+}
