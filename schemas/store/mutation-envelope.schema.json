@@ -21,11 +21,12 @@
     "effective_time": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "recorded_time": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" },
     "observed_versions": {
+      "description": "Version references use canonical decimal grammar with no leading zeros; numeric range bounding is the consuming type's responsibility.",
       "type": "object",
       "propertyNames": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
       "additionalProperties": {
         "type": "string",
-        "anyOf": [ { "pattern": "^v[0-9]+$" }, { "const": "absent" } ]
+        "anyOf": [ { "pattern": "^v(0|[1-9][0-9]*)$", "maxLength": 21 }, { "const": "absent" } ]
       }
     },
     "observed_policy_versions": {
