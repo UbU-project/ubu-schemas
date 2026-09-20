@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/worker/local-advisory-submission.schema.json",
+  "title": "Local Advisory Submission",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "submission_id": { "type": "string", "minLength": 1 },
+    "authority": { "$ref": "https://schemas.ubunow.net/phase1/worker/worker-authority.schema.json" },
+    "payload": {},
+    "expected_result_schema": { "type": "string", "minLength": 1 },
+    "timeout_ms": { "type": "integer", "minimum": 1 },
+    "compute_budget": { "type": "object", "additionalProperties": false, "properties": { "max_cpu_ms": { "type": "integer", "minimum": 0 }, "max_memory_bytes": { "type": "integer", "minimum": 0 } }, "required": ["max_cpu_ms", "max_memory_bytes"] },
+    "result_size_limit_bytes": { "type": "integer", "minimum": 1 },
+    "partial_results_allowed": { "type": "boolean" },
+    "causal_parents": { "type": "array", "items": { "type": "string" } },
+    "observed_policy_versions": { "type": "object", "additionalProperties": { "type": "string" } },
+    "input_digests": { "type": "object", "additionalProperties": { "type": "string" } },
+    "provider_config": { "$ref": "https://schemas.ubunow.net/phase1/worker/provider-config.schema.json" },
+    "origin_device_id": { "type": "string", "minLength": 1 },
+    "execution_context": { "type": ["object", "null"] },
+    "submitted_at": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
+  },
+  "required": ["submission_id", "authority", "payload", "expected_result_schema", "timeout_ms", "compute_budget", "result_size_limit_bytes", "partial_results_allowed", "causal_parents", "observed_policy_versions", "input_digests", "provider_config", "origin_device_id", "submitted_at"],
+  "allOf": [{ "properties": { "authority": { "required": ["granted"], "properties": { "granted": { "minItems": 1 } } } } }]
+}

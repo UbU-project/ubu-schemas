@@ -8,8 +8,17 @@
   "properties": {
     "worker_id": { "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json" },
     "authority_source": { "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json" },
-    "delegated_by": { "$ref": "https://schemas.ubunow.net/phase1/core/identity.schema.json" }
+    "delegated_by": { "$ref": "https://schemas.ubunow.net/phase1/core/identity.schema.json" },
+    "granted": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "oneOf": [
+        { "type": "object", "additionalProperties": false, "properties": { "propose_candidate": { "type": "string", "enum": ["tag", "dependency", "preference", "decomposition", "clarification_question"] } }, "required": ["propose_candidate"] },
+        { "const": "emit_diagnostics" },
+        { "const": "emit_telemetry" }
+      ]}
+    },
+    "deadline": { "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json" }
   },
   "required": ["worker_id", "authority_source"]
 }
-

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/worker/provider-config.schema.json",
+  "title": "Advisory Provider Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "provider_name": { "type": "string", "minLength": 1 },
+    "provider_version": { "type": "string", "minLength": 1 },
+    "model_name": { "type": "string", "minLength": 1 },
+    "model_version": { "type": "string", "minLength": 1 },
+    "prompt_template_digest": { "type": "string" }
+  },
+  "required": ["provider_name", "provider_version", "model_name", "model_version"]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/worker/local-advisory-result.schema.json",
+  "title": "Local Advisory Result",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "submission_id": { "type": "string", "minLength": 1 },
+    "authority": { "$ref": "https://schemas.ubunow.net/phase1/worker/worker-authority.schema.json" },
+    "provider_config": { "$ref": "https://schemas.ubunow.net/phase1/worker/provider-config.schema.json" },
+    "observed_policy_versions": { "type": "object", "additionalProperties": { "type": "string" } },
+    "input_digests": { "type": "object", "additionalProperties": { "type": "string" } },
+    "status": { "type": "string", "enum": ["ok", "partial", "rejected", "timeout", "worker_error", "malformed_result", "cancelled"] },
+    "artifacts": { "type": "array", "items": {} },
+    "proposed_candidates": { "type": "array", "items": { "$ref": "https://schemas.ubunow.net/phase1/core/advisory-candidate.schema.json" } },
+    "diagnostics": { "type": "array", "items": {} },
+    "telemetry": { "type": "array", "items": {} },
+    "deletion_confirmed": { "type": "boolean" }
+  },
+  "required": ["submission_id", "authority", "provider_config", "observed_policy_versions", "input_digests", "status", "artifacts", "proposed_candidates", "diagnostics", "telemetry"],
+  "allOf": [{ "if": { "properties": { "status": { "enum": ["rejected", "timeout", "worker_error", "malformed_result", "cancelled"] } } }, "then": { "properties": { "proposed_candidates": { "maxItems": 0 } } } }]
+}
