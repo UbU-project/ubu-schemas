@@ -128,6 +128,15 @@
     },
     "provenance": {
       "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
+    },
+    "tags": {
+      "type": "array",
+      "description": "Free-text tags. Tags are order-preserving and are not normalized.",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     }
   },
   "required": ["id", "title", "status", "provenance"],
