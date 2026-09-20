@@ -1,0 +1,332 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/advisory-candidate.schema.json",
+  "title": "Advisory Candidate",
+  "description": "A first-class UBU-D0274 candidate-state proposal, never an admitted object. Lifecycle history is checked by the core transition function.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "advisory_candidate_id": {
+      "type": "string",
+      "pattern": "^advcand_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$",
+      "minLength": 40,
+      "maxLength": 40,
+      "description": "Candidate-state UUIDv7 newtype, deliberately outside the admitted-object id registry."
+    },
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_kind": {
+      "$ref": "#/$defs/candidate_kind"
+    },
+    "lifecycle_state": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "deferred",
+        "resurfaced",
+        "admitted",
+        "rejected",
+        "superseded",
+        "archived"
+      ]
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 18446744073709551615
+    },
+    "target_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+      }
+    },
+    "normalized_proposal": {},
+    "payload": {
+      "$ref": "#/$defs/payload"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "field_provenance": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "proposed_at": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "effective_time": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "proposing_actor": {
+      "$ref": "#/$defs/proposing_actor"
+    },
+    "origin_device_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_context": {
+      "$ref": "https://schemas.ubunow.net/phase1/store/mutation-envelope.schema.json#/properties/execution_context"
+    },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "suppression_key": {
+      "type": "string"
+    },
+    "compartment_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "review_label": {
+      "$ref": "#/$defs/review_label"
+    },
+    "disclosure_policy": {
+      "$ref": "#/$defs/disclosure_policy"
+    },
+    "retention_policy": {
+      "$ref": "#/$defs/retention_policy"
+    },
+    "review_order": {
+      "type": "integer",
+      "minimum": -9223372036854775808,
+      "maximum": 9223372036854775807
+    },
+    "links": {
+      "$ref": "#/$defs/links"
+    }
+  },
+  "required": [
+    "advisory_candidate_id",
+    "schema_version",
+    "candidate_kind",
+    "lifecycle_state",
+    "version",
+    "target_refs",
+    "normalized_proposal",
+    "payload",
+    "evidence_refs",
+    "field_provenance",
+    "proposed_at",
+    "proposing_actor",
+    "origin_device_id",
+    "idempotency_key",
+    "compartment_ids",
+    "review_label",
+    "disclosure_policy",
+    "retention_policy",
+    "links"
+  ],
+  "$defs": {
+    "candidate_kind": {
+      "type": "string",
+      "enum": [
+        "tag",
+        "dependency",
+        "preference",
+        "decomposition",
+        "clarification_question"
+      ]
+    },
+    "resurface_trigger": {
+      "type": "string",
+      "enum": [
+        "materially_new_evidence",
+        "user_request",
+        "policy_review_interval",
+        "accepted_change_to_target_or_dependencies",
+        "clarification_or_external_reference_arrival"
+      ]
+    },
+    "retention_policy": {
+      "type": "string",
+      "enum": [
+        "retain",
+        "purge_payload"
+      ],
+      "description": "Retain under applicable policy, or purge payload while durable correction metadata survives; no automatic retention execution."
+    },
+    "disclosure_policy": {
+      "type": "string",
+      "enum": [
+        "compartment_only",
+        "redacted_only"
+      ],
+      "description": "Review visibility restriction; neither grants export authority."
+    },
+    "proposing_actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "model_or_tool_name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "prompt_template_digest": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "model_or_tool_name",
+        "version"
+      ]
+    },
+    "review_label": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "label"
+            },
+            "value": {
+              "$ref": "https://schemas.ubunow.net/phase1/common/compartment-label.schema.json"
+            }
+          },
+          "required": [
+            "kind",
+            "value"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "redacted"
+            }
+          },
+          "required": [
+            "kind"
+          ]
+        }
+      ]
+    },
+    "payload": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "inline"
+            },
+            "value": {}
+          },
+          "required": [
+            "kind",
+            "value"
+          ]
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "redacted_summary"
+            },
+            "value": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "kind",
+            "value"
+          ]
+        }
+      ]
+    },
+    "links": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "deferral_ref": {
+          "type": "string"
+        },
+        "prior_deferral_ref": {
+          "type": "string"
+        },
+        "resurface_trigger": {
+          "$ref": "#/$defs/resurface_trigger"
+        },
+        "trigger_evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resurfacing_reason": {
+          "type": "string"
+        },
+        "resurfacing_ref": {
+          "type": "string"
+        },
+        "supersession_ref": {
+          "type": "string"
+        },
+        "admission_ref": {
+          "type": "string"
+        },
+        "archive_ref": {
+          "type": "string"
+        },
+        "correction_ref": {
+          "type": "string"
+        },
+        "rejection_ref": {
+          "type": "string"
+        }
+      },
+      "required": []
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "lifecycle_state": {
+            "const": "resurfaced"
+          }
+        },
+        "required": [
+          "lifecycle_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "links": {
+            "required": [
+              "prior_deferral_ref",
+              "resurface_trigger"
+            ],
+            "properties": {
+              "prior_deferral_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

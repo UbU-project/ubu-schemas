@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/core/suppression-record.schema.json",
+  "title": "Suppression Record",
+  "description": "Durable correction metadata must never make the rejected proposal true, accepted, exportable, more visible, or eligible as evidence for admitted state. Contains no rejected payload. Target/scope uses typed refs; review_label encodes the Compartment/redaction class; proposing_actor carries extractor/model version and optional prompt/template digest.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_kind": {
+      "$ref": "https://schemas.ubunow.net/phase1/core/advisory-candidate.schema.json#/$defs/candidate_kind"
+    },
+    "normalized_proposal": {},
+    "target_and_scope_shape": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+      }
+    },
+    "compartment_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "review_label": {
+      "$ref": "https://schemas.ubunow.net/phase1/core/advisory-candidate.schema.json#/$defs/review_label"
+    },
+    "evidence_hashes_or_source_fingerprints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "proposing_actor": {
+      "$ref": "https://schemas.ubunow.net/phase1/core/advisory-candidate.schema.json#/$defs/proposing_actor"
+    },
+    "schema_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rejection_reason_or_user_correction": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deciding_actor_identity_id": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json",
+      "pattern": "^identity_"
+    },
+    "authority_source": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json"
+    },
+    "decided_at": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "retention_policy": {
+      "$ref": "https://schemas.ubunow.net/phase1/core/advisory-candidate.schema.json#/$defs/retention_policy"
+    },
+    "suppression_key": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "candidate_kind",
+    "normalized_proposal",
+    "target_and_scope_shape",
+    "compartment_ids",
+    "review_label",
+    "evidence_hashes_or_source_fingerprints",
+    "proposing_actor",
+    "schema_version",
+    "rejection_reason_or_user_correction",
+    "deciding_actor_identity_id",
+    "authority_source",
+    "decided_at",
+    "retention_policy",
+    "suppression_key"
+  ]
+}
