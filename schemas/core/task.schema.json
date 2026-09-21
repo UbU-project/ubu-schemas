@@ -137,6 +137,30 @@
         "type": "string",
         "minLength": 1
       }
+    },
+    "category_tag": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Optional exact, case-sensitive selection from this Task's tags. Membership is validated by core."
+    },
+    "occupies_capacity": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this Task occupies capacity. False Tasks are still placed and projected."
+    },
+    "static_window": {
+      "type": "object",
+      "description": "Fixed start and end of a Static Task, authoritative for placement and duration. Core requires end strictly after start; duration_estimate is not compared to this window.",
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+        },
+        "end": {
+          "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+        }
+      },
+      "required": ["start", "end"]
     }
   },
   "required": ["id", "title", "status", "provenance"],
