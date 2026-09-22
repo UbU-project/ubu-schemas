@@ -161,9 +161,26 @@
         }
       },
       "required": ["start", "end"]
+    },
+    "allowed_time_range": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "earliest_start": {
+          "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+        },
+        "latest_finish": {
+          "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+        }
+      },
+      "required": [
+        "earliest_start",
+        "latest_finish"
+      ]
     }
   },
   "required": ["id", "title", "status", "provenance"],
+  "not": { "required": ["static_window", "allowed_time_range"] },
   "allOf": [
     {
       "if": {
