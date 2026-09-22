@@ -53,13 +53,20 @@
               "exclusiveMinimum": 0
             }
           },
-          "required": ["type", "seconds"]
+          "required": [
+            "type",
+            "seconds"
+          ]
         },
         {
           "type": "object",
           "description": "A shifted log-normal estimate ordered as 0 <= min_seconds < mode_seconds < p95_seconds.",
           "additionalProperties": false,
-          "x-ubu-strictly-increasing": ["min_seconds", "mode_seconds", "p95_seconds"],
+          "x-ubu-strictly-increasing": [
+            "min_seconds",
+            "mode_seconds",
+            "p95_seconds"
+          ],
           "properties": {
             "type": {
               "type": "string",
@@ -78,7 +85,12 @@
               "exclusiveMinimum": 0
             }
           },
-          "required": ["type", "min_seconds", "mode_seconds", "p95_seconds"]
+          "required": [
+            "type",
+            "min_seconds",
+            "mode_seconds",
+            "p95_seconds"
+          ]
         }
       ]
     },
@@ -100,7 +112,10 @@
             "maximum": 1
           }
         },
-        "required": ["group", "strength"]
+        "required": [
+          "group",
+          "strength"
+        ]
       }
     },
     "preconditions": {
@@ -113,7 +128,10 @@
       "properties": {
         "success_probability": {
           "description": "Optional planning metadata: probability the Task succeeds, in [0, 1]. May be null.",
-          "type": ["number", "null"],
+          "type": [
+            "number",
+            "null"
+          ],
           "minimum": 0,
           "maximum": 1
         },
@@ -124,7 +142,9 @@
           }
         }
       },
-      "required": ["mutations"]
+      "required": [
+        "mutations"
+      ]
     },
     "provenance": {
       "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
@@ -160,7 +180,10 @@
           "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
         }
       },
-      "required": ["start", "end"]
+      "required": [
+        "start",
+        "end"
+      ]
     },
     "allowed_time_range": {
       "type": "object",
@@ -177,34 +200,89 @@
         "earliest_start",
         "latest_finish"
       ]
+    },
+    "occurrence": {
+      "$ref": "#/$defs/occurrence"
     }
   },
-  "required": ["id", "title", "status", "provenance"],
-  "not": { "required": ["static_window", "allowed_time_range"] },
+  "required": [
+    "id",
+    "title",
+    "status",
+    "provenance"
+  ],
+  "not": {
+    "required": [
+      "static_window",
+      "allowed_time_range"
+    ]
+  },
   "allOf": [
     {
       "if": {
         "properties": {
-          "status": { "const": "moot" }
+          "status": {
+            "const": "moot"
+          }
         },
-        "required": ["status"]
+        "required": [
+          "status"
+        ]
       },
       "then": {
-        "required": ["moot_reason_code"]
+        "required": [
+          "moot_reason_code"
+        ]
       }
     },
     {
       "if": {
         "properties": {
-          "status": { "enum": ["active", "completed", "failed"] }
+          "status": {
+            "enum": [
+              "active",
+              "completed",
+              "failed"
+            ]
+          }
         },
-        "required": ["status"]
+        "required": [
+          "status"
+        ]
       },
       "then": {
         "not": {
-          "required": ["moot_reason_code"]
+          "required": [
+            "moot_reason_code"
+          ]
         }
       }
     }
-  ]
+  ],
+  "$defs": {
+    "occurrence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "routine_objective_id": {
+          "type": "string",
+          "pattern": "^obj_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+        },
+        "local_date": {
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "key": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "routine_objective_id",
+        "local_date",
+        "key"
+      ]
+    }
+  }
 }
