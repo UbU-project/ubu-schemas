@@ -20,6 +20,7 @@
     { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/universe_state_id" },
     { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/identity_id" },
     { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/relationship_id" },
-    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/external_event_id" }
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/external_event_id" },
+    { "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/setting_id" }
   ]
 }

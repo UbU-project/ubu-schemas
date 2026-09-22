@@ -3,22 +3,93 @@
   "$id": "https://schemas.ubunow.net/phase1/core/preference.schema.json",
   "title": "Preference",
   "type": "object",
-  "description": "A user or system preference that can influence planning without becoming runtime logic.",
   "additionalProperties": false,
   "properties": {
     "id": {
-      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+      "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/preference_id"
     },
-    "name": {
-      "type": "string",
-      "minLength": 1
+    "task_a": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/task_id"
     },
-    "value": {
-      "type": ["string", "number", "boolean"]
+    "task_b": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/task_id"
     },
-    "authority_source": {
-      "$ref": "https://schemas.ubunow.net/phase1/common/authority-source.schema.json"
+    "objective_a": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/objective_id"
+    },
+    "objective_b": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/objective_id"
+    },
+    "order": {
+      "enum": [
+        "a_preferred_to_b",
+        "a_indifferent_to_b"
+      ]
+    },
+    "acquired_method": {
+      "enum": [
+        "user_defined",
+        "llm_estimated"
+      ]
+    },
+    "acquired_date": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "provenance": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
     }
   },
-  "required": ["id", "name", "value", "authority_source"]
+  "required": [
+    "id",
+    "order",
+    "acquired_method",
+    "acquired_date",
+    "enabled",
+    "provenance"
+  ],
+  "oneOf": [
+    {
+      "required": [
+        "task_a",
+        "task_b"
+      ],
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "objective_a"
+            ]
+          },
+          {
+            "required": [
+              "objective_b"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "required": [
+        "objective_a",
+        "objective_b"
+      ],
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "task_a"
+            ]
+          },
+          {
+            "required": [
+              "task_b"
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }

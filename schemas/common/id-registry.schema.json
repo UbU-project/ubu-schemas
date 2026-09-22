@@ -241,6 +241,28 @@
           "id": { "$ref": "#/$defs/external_event_id" }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "prefix": {
+            "const": "setting_"
+          }
+        },
+        "required": [
+          "prefix"
+        ]
+      },
+      "then": {
+        "properties": {
+          "object_type": {
+            "const": "Setting"
+          },
+          "id": {
+            "$ref": "#/$defs/setting_id"
+          }
+        }
+      }
     }
   ],
   "$defs": {
@@ -251,11 +273,11 @@
     },
     "allowed_prefix": {
       "type": "string",
-      "enum": ["task_", "obj_", "plan_", "log_", "xref_", "comp_", "snap_", "worker_", "proj_", "cal_", "pref_", "container_", "ustate_", "identity_", "rel_", "xevent_"]
+      "enum": ["task_", "obj_", "plan_", "log_", "xref_", "comp_", "snap_", "worker_", "proj_", "cal_", "pref_", "container_", "ustate_", "identity_", "rel_", "xevent_", "setting_"]
     },
     "object_type": {
       "type": "string",
-      "enum": ["Task", "Objective", "Plan", "LogEntry", "ExternalReference", "Compartment", "Snapshot", "AutomationWorker", "ProjectionPreview", "Calendar", "Preference", "Container", "UniverseState", "Identity", "Relationship", "ExternalEvent"]
+      "enum": ["Task", "Objective", "Plan", "LogEntry", "ExternalReference", "Compartment", "Snapshot", "AutomationWorker", "ProjectionPreview", "Calendar", "Preference", "Container", "UniverseState", "Identity", "Relationship", "ExternalEvent", "Setting"]
     },
     "task_id": {
       "type": "string",
@@ -321,6 +343,10 @@
       "type": "string",
       "pattern": "^xevent_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
     },
+    "setting_id": {
+      "type": "string",
+      "pattern": "^setting_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
+    },
     "any_ubu_id": {
       "oneOf": [
         { "$ref": "#/$defs/task_id" },
@@ -338,7 +364,8 @@
         { "$ref": "#/$defs/universe_state_id" },
         { "$ref": "#/$defs/identity_id" },
         { "$ref": "#/$defs/relationship_id" },
-        { "$ref": "#/$defs/external_event_id" }
+        { "$ref": "#/$defs/external_event_id" },
+        { "$ref": "#/$defs/setting_id" }
       ]
     }
   }
