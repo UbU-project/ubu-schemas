@@ -48,7 +48,8 @@
       {
         "objective_id": "obj_018f3c8e9b2a7c4d8f1e2a3b4c5d6e80",
         "minimum_seconds": 3600,
-        "maximum_seconds": 7200
+        "maximum_seconds": 7200,
+        "offset_seconds": 3600
       }
     ]
   }

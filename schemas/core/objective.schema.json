@@ -316,14 +316,18 @@
                 "type": "string",
                 "pattern": "^obj_[0-9a-f]{12}7[0-9a-f]{3}[89ab][0-9a-f]{15}$"
               },
-              "offset_seconds": {
+              "minimum_seconds": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "maximum_seconds": {
                 "type": "integer",
                 "minimum": 0
               }
             },
             "required": [
               "objective_id",
-              "offset_seconds"
+              "minimum_seconds"
             ]
           }
         },
