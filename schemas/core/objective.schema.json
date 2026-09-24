@@ -334,6 +334,12 @@
         "template_version": {
           "type": "integer",
           "minimum": 1
+        },
+        "effects": {
+          "$ref": "https://schemas.ubunow.net/phase1/core/task.schema.json#/properties/effects"
+        },
+        "preconditions": {
+          "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
         }
       },
       "required": [
