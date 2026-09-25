@@ -1,0 +1,13 @@
+{
+  "operation_id": "calendar-delete-synthetic",
+  "kind": "delete",
+  "target": {
+    "source_kind": "google_calendar",
+    "source_id": "018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f"
+  },
+  "summary": "Synthetic cancelled appointment",
+  "payload": {
+    "external_id": "018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+    "summary": "Synthetic cancelled appointment"
+  }
+}

@@ -7,10 +7,10 @@
   "additionalProperties": false,
   "properties": {
     "operation_id": { "type": "string", "minLength": 1 },
-    "kind": { "type": "string", "enum": ["create", "update", "comment", "label"] },
+    "kind": { "type": "string", "enum": ["create", "update", "comment", "label", "delete"] },
     "target": { "$ref": "https://schemas.ubunow.net/phase1/common/source-ref.schema.json" },
-    "summary": { "type": "string", "minLength": 1 }
+    "summary": { "type": "string", "minLength": 1 },
+    "payload": {}
   },
   "required": ["operation_id", "kind", "target", "summary"]
 }
-
