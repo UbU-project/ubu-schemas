@@ -1,3 +1,5 @@
+mod timestamp_order;
+
 use std::{collections::HashMap, error::Error, fs, path::Path};
 
 use anyhow::{anyhow, bail, Context, Result};
@@ -66,6 +68,27 @@ impl Keyword for UniqueBy {
                 .and_then(Value::as_str)
                 .is_none_or(|value| seen.insert(value))
         })
+    }
+}
+
+struct TimestampOrder {
+    start: String,
+    end: String,
+}
+impl Keyword for TimestampOrder {
+    fn validate<'i>(&self, instance: &'i Value) -> Result<(), ValidationError<'i>> {
+        if self.is_valid(instance) {
+            Ok(())
+        } else {
+            Err(ValidationError::custom("window end must be after start"))
+        }
+    }
+    fn is_valid(&self, instance: &Value) -> bool {
+        instance
+            .get(&self.start)
+            .and_then(Value::as_str)
+            .zip(instance.get(&self.end).and_then(Value::as_str))
+            .is_none_or(|(start, end)| timestamp_order::strictly_before(start, end))
     }
 }
 
@@ -166,6 +189,21 @@ fn validate_fixture_tree(
                     ValidationError::custom("x-ubu-unique-by must be a property name")
                 })?;
                 Ok(Box::new(UniqueBy { property }))
+            })
+            .with_keyword("x-ubu-timestamp-order", |_, value, _| {
+                let fields = value
+                    .as_array()
+                    .filter(|fields| fields.len() == 2)
+                    .and_then(|fields| fields[0].as_str().zip(fields[1].as_str()))
+                    .ok_or_else(|| {
+                        ValidationError::custom(
+                            "x-ubu-timestamp-order requires start and end property names",
+                        )
+                    })?;
+                Ok(Box::new(TimestampOrder {
+                    start: fields.0.into(),
+                    end: fields.1.into(),
+                }))
             })
             .build(schema)
             .with_context(|| format!("failed to build validator for {}", path.display()))?;

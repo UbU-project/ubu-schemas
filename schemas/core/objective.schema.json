@@ -90,6 +90,36 @@
         "schedule_version": {
           "type": "integer",
           "minimum": 1
+        },
+        "overrides": {
+          "type": "array",
+          "x-ubu-unique-by": "local_date",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "local_date": {
+                "type": "string",
+                "format": "date",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+              },
+              "start": {
+                "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+              },
+              "end": {
+                "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+              }
+            },
+            "required": [
+              "local_date",
+              "start",
+              "end"
+            ],
+            "x-ubu-timestamp-order": [
+              "start",
+              "end"
+            ]
+          }
         }
       },
       "required": [
