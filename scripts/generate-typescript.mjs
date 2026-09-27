@@ -1,3 +1,4 @@
+import { bundleSchema } from './bundle-schema.mjs';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -40,71 +41,6 @@ function toTypeName(schema) {
     .split(/\s+/)
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join('');
-}
-
-function pointerGet(value, pointer) {
-  if (!pointer || pointer === '#') {
-    return value;
-  }
-  if (!pointer.startsWith('#/')) {
-    throw new Error(`Unsupported JSON pointer fragment: ${pointer}`);
-  }
-  return pointer.slice(2).split('/').reduce((current, token) => {
-    const key = token.replace(/~1/g, '/').replace(/~0/g, '~');
-    if (current == null || !(key in current)) {
-      throw new Error(`Unresolvable JSON pointer fragment: ${pointer}`);
-    }
-    return current[key];
-  }, value);
-}
-
-function sanitizeDefinitionKey(uri) {
-  return uri
-    .replace(/^https:\/\/schemas\.ubunow\.net\/phase1\//, '')
-    .replace(/\.schema\.json/g, '')
-    .replace(/[^A-Za-z0-9]+/g, '_')
-    .replace(/^_+|_+$/g, '');
-}
-
-function bundleSchema(rootSchema, registry) {
-  const root = structuredClone(rootSchema);
-  const definitions = root.$defs ? structuredClone(root.$defs) : {};
-  const seen = new Set();
-
-  function rewrite(node) {
-    if (Array.isArray(node)) {
-      node.forEach(rewrite);
-      return;
-    }
-    if (!node || typeof node !== 'object') {
-      return;
-    }
-
-    if (typeof node.$ref === 'string' && node.$ref.startsWith('https://schemas.ubunow.net/phase1/')) {
-      const [base, fragment = ''] = node.$ref.split('#');
-      const targetSchema = registry.get(base);
-      if (!targetSchema) {
-        throw new Error(`Unregistered schema $id in $ref: ${node.$ref}`);
-      }
-      const key = sanitizeDefinitionKey(`${base}${fragment ? `_${fragment}` : ''}`);
-      node.$ref = `#/$defs/${key}`;
-      if (!seen.has(key)) {
-        seen.add(key);
-        definitions[key] = structuredClone(pointerGet(targetSchema, fragment ? `#${fragment}` : '#'));
-        rewrite(definitions[key]);
-      }
-    }
-
-    for (const value of Object.values(node)) {
-      rewrite(value);
-    }
-  }
-
-  rewrite(root);
-  if (Object.keys(definitions).length > 0) {
-    root.$defs = definitions;
-  }
-  return root;
 }
 
 async function main() {

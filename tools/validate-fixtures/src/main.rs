@@ -42,6 +42,30 @@ impl Keyword for StrictlyIncreasing {
     }
 }
 
+// A custom vocabulary constraint, like x-ubu-strictly-increasing for objects.
+struct IncreasingItems;
+impl Keyword for IncreasingItems {
+    fn validate<'i>(&self, instance: &'i Value) -> Result<(), ValidationError<'i>> {
+        if self.is_valid(instance) {
+            Ok(())
+        } else {
+            Err(ValidationError::custom(
+                "array integers must be strictly increasing",
+            ))
+        }
+    }
+    fn is_valid(&self, instance: &Value) -> bool {
+        instance.as_array().is_none_or(|items| {
+            items.windows(2).all(|pair| {
+                pair[0]
+                    .as_u64()
+                    .zip(pair[1].as_u64())
+                    .is_none_or(|(a, b)| a < b)
+            })
+        })
+    }
+}
+
 struct UniqueBy {
     property: String,
 }
@@ -183,6 +207,14 @@ fn validate_fixture_tree(
                         )
                     })?;
                 Ok(Box::new(StrictlyIncreasing { properties }))
+            })
+            .with_keyword("x-ubu-increasing-items", |_, value, _| {
+                if value != &Value::Bool(true) {
+                    return Err(ValidationError::custom(
+                        "x-ubu-increasing-items must be true",
+                    ));
+                }
+                Ok(Box::new(IncreasingItems))
             })
             .with_keyword("x-ubu-unique-by", |_, value, _| {
                 let property = value.as_str().map(str::to_owned).ok_or_else(|| {

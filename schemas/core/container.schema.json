@@ -3,22 +3,111 @@
   "$id": "https://schemas.ubunow.net/phase1/core/container.schema.json",
   "title": "Container",
   "type": "object",
-  "description": "A named grouping of UbU object references.",
+  "description": "Phase 1b decomposition structure. Split points are exclusive child-index boundaries: a point of 1 ends the first segment after the first child. The upper bound (less than items length) is enforced by ubu-core Container::validate; JSON Schema cannot express this cross-field bound. Strict ordering uses the repository validator extension.",
   "additionalProperties": false,
   "properties": {
     "id": {
-      "$ref": "https://schemas.ubunow.net/phase1/common/id.schema.json"
+      "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/container_id"
     },
     "name": {
       "type": "string",
       "minLength": 1
     },
+    "status": {
+      "enum": [
+        "active",
+        "superseded"
+      ]
+    },
+    "origin_task_ref": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/task_id"
+    },
+    "origin_task_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "mutation_reason": {
+      "enum": [
+        "decomposition"
+      ]
+    },
+    "mutation_log_ref": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/log_entry_id"
+    },
     "items": {
       "type": "array",
+      "minItems": 2,
       "items": {
-        "$ref": "https://schemas.ubunow.net/phase1/common/object-ref.schema.json"
+        "allOf": [
+          {
+            "$ref": "https://schemas.ubunow.net/phase1/core/work-item.schema.json"
+          },
+          {
+            "properties": {
+              "ref": {
+                "properties": {
+                  "id": {
+                    "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/task_id"
+                  },
+                  "object_type": {
+                    "const": "Task"
+                  }
+                }
+              }
+            }
+          }
+        ]
       }
+    },
+    "segment_split_points": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "uniqueItems": true,
+      "x-ubu-increasing-items": true
+    },
+    "provenance": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/provenance.schema.json"
+    },
+    "superseded_by_task_ref": {
+      "$ref": "https://schemas.ubunow.net/phase1/common/id-registry.schema.json#/$defs/task_id"
     }
   },
-  "required": ["id", "name", "items"]
+  "required": [
+    "id",
+    "name",
+    "status",
+    "origin_task_ref",
+    "origin_task_version",
+    "mutation_reason",
+    "mutation_log_ref",
+    "items",
+    "segment_split_points",
+    "provenance"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "superseded"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "superseded_by_task_ref"
+        ]
+      },
+      "else": {
+        "not": {
+          "required": [
+            "superseded_by_task_ref"
+          ]
+        }
+      }
+    }
+  ]
 }
