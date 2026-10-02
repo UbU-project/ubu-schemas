@@ -22,7 +22,7 @@
       }
     ]
   },
-  "provenance": {
+  "fact_provenance": {
     "facts.greenhouse.vent.propped": {
       "kind": "asserted"
     },

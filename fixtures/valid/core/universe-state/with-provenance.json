@@ -22,7 +22,7 @@
       }
     ]
   },
-  "provenance": {
+  "fact_provenance": {
     "facts.greenhouse.vent.propped": {
       "kind": "asserted",
       "recorded_at": "2026-06-22T14:31:00Z"

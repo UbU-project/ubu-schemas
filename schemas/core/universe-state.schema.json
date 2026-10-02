@@ -3,7 +3,7 @@
   "$id": "https://schemas.ubunow.net/phase1/core/universe-state.schema.json",
   "title": "Universe State",
   "type": "object",
-  "description": "Canonical Phase 1 UniverseState facts container for planning or API exchange, represented as four open fact collections, an optional per-target provenance map, and source and confidence summaries.",
+  "description": "Canonical Phase 1 UniverseState facts container for planning or API exchange, represented as four open fact collections, an optional per-target fact_provenance map, and source and confidence summaries.",
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -61,9 +61,9 @@
         }
       }
     },
-    "provenance": {
+    "fact_provenance": {
       "type": "object",
-      "description": "Optional map from a full target, a collection name and then its dotted key, to how the value at that target was established and when. A target with no entry has no recorded provenance. An entry is removed with its value.",
+      "description": "Optional map from a full target, a collection name and then its dotted key, to how the value at that target was established and when. A target with no entry has no recorded provenance. An entry is removed with its value. It is not named provenance because a stored UniverseState payload already carries the object envelope under that key.",
       "propertyNames": {
         "type": "string",
         "pattern": "^(facts|numeric_values|set_memberships|event_markers)\\.[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*$"

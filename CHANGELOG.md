@@ -5,7 +5,7 @@
 - P1B-59 A: A measured number is a first-class fact.
   - `core/universe-state-mutation` gains `set_numeric` and `clear_numeric`. `payload` is required for every operation except `clear_fact` and `clear_numeric`, which now refuse one. The payload of `set_numeric` must be a number.
   - `core/universe-state-mutation` gains optional `provenance_kind` (`asserted`, `measured`, `derived`, `proposed`), refused on the two clears. **`note` is removed**: it was accepted and stored nowhere. A mutation that carries `note` is now invalid.
-  - `core/universe-state` gains an optional `provenance` map keyed by full target, each value `{kind, recorded_at}` and nothing else. It is not required, so existing documents stay valid.
+  - `core/universe-state` gains an optional `fact_provenance` map keyed by full target, each value `{kind, recorded_at}` and nothing else. It is not required, so existing documents stay valid. The first commit of this section named it `provenance`; a stored UniverseState payload already carries the object envelope under that key, so it was renamed before anything read it.
   - `core/precondition` gains `at_least`, `at_most`, `greater_than` and `less_than`, each requiring a `numeric_values` target and a numeric `expected`. The invalid fixture `unknown-predicate` used `greater_than`, which is now a predicate; it uses an unknown name, and its old content is the invalid fixture `comparison-on-facts-target`.
   - A `clear_fact` with a `payload` was valid against the schema and refused by `ubu-core`. The schema now refuses it too.
 
