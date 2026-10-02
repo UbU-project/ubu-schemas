@@ -3,7 +3,7 @@
   "$id": "https://schemas.ubunow.net/phase1/core/universe-state.schema.json",
   "title": "Universe State",
   "type": "object",
-  "description": "Canonical Phase 1 UniverseState facts container for planning or API exchange, represented as four open fact collections plus source and confidence summaries.",
+  "description": "Canonical Phase 1 UniverseState facts container for planning or API exchange, represented as four open fact collections, an optional per-target provenance map, and source and confidence summaries.",
   "additionalProperties": false,
   "properties": {
     "id": {
@@ -61,6 +61,35 @@
         }
       }
     },
+    "provenance": {
+      "type": "object",
+      "description": "Optional map from a full target, a collection name and then its dotted key, to how the value at that target was established and when. A target with no entry has no recorded provenance. An entry is removed with its value.",
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^(facts|numeric_values|set_memberships|event_markers)\\.[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "description": "How one value was established, and when. Deliberately nothing else: no confidence number and no free text.",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "type": "string",
+            "description": "asserted: a person said so. measured: an instrument or a reading. derived: computed from other facts. proposed: an advisor suggested it and it has not been confirmed.",
+            "enum": [
+              "asserted",
+              "measured",
+              "derived",
+              "proposed"
+            ]
+          },
+          "recorded_at": {
+            "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
+          }
+        },
+        "required": ["kind", "recorded_at"]
+      }
+    },
     "source_summary": {
       "type": "object",
       "description": "Loosely typed summary of sources that informed this UniverseState.",
@@ -72,13 +101,5 @@
       "additionalProperties": true
     }
   },
-  "required": [
-    "id",
-    "captured_at",
-    "facts",
-    "numeric_values",
-    "set_memberships",
-    "event_markers",
-    "source_summary"
-  ]
+  "required": ["id", "captured_at", "facts", "numeric_values", "set_memberships", "event_markers", "source_summary"]
 }

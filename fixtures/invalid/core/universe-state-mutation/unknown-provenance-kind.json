@@ -1,0 +1,6 @@
+{
+  "operation": "set_numeric",
+  "target": "numeric_values.greenhouse.bench.seed_trays",
+  "payload": 12,
+  "provenance_kind": "guessed"
+}

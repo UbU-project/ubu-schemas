@@ -1,0 +1,6 @@
+{
+  "operation": "set_fact",
+  "target": "facts.greenhouse.vent.propped",
+  "payload": true,
+  "provenance_kind": "proposed"
+}

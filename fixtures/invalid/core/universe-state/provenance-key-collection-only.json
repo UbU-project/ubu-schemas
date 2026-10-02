@@ -1,0 +1,37 @@
+{
+  "id": "ustate_018f3c8e9b2a7c4d8f1e2a3b4c5d6e80",
+  "captured_at": "2026-06-22T14:30:00Z",
+  "facts": {
+    "greenhouse.vent.propped": true,
+    "greenhouse.bench.label": "north"
+  },
+  "numeric_values": {
+    "greenhouse.bench.seed_trays": 12,
+    "greenhouse.vent.opening_degrees": 37.5
+  },
+  "set_memberships": {
+    "greenhouse.tools": [
+      "trowel",
+      "dibber"
+    ]
+  },
+  "event_markers": {
+    "greenhouse.vent.opened": [
+      {
+        "by": "invented lever"
+      }
+    ]
+  },
+  "provenance": {
+    "facts": {
+      "kind": "asserted",
+      "recorded_at": "2026-06-22T14:31:00Z"
+    }
+  },
+  "source_summary": {
+    "source_kinds": [
+      "user"
+    ],
+    "captured_by": "synthetic fixture"
+  }
+}

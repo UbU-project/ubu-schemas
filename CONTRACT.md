@@ -36,6 +36,16 @@ The canonical prefix mapping is defined in `schemas/common/id-registry.schema.js
 
 Per `UBU-D0229`, `schemas/core/universe-state.schema.json` is the canonical Phase 1 UniverseState facts object for planning or API exchange. It is not a snapshot-view placeholder; snapshot views remain represented by `schemas/core/snapshot.schema.json`.
 
+From P1B-59 three schemas describe a measured number as a first-class fact, and they change together:
+
+- `schemas/core/universe-state-mutation.schema.json` has nine operations. `set_numeric` replaces a number and `clear_numeric` removes it, beside `set_fact` and `clear_fact`. `payload` is required for every operation except the two clears, which refuse one. The payload of `set_numeric` must be a number. The schema types no other payload; `ubu-core` enforces the rest.
+- A mutation may carry `provenance_kind`: `asserted`, `measured`, `derived` or `proposed`. Absent means `asserted`. The two clears refuse it, because they write nothing for it to describe.
+- A mutation has no `note`. The field was accepted and stored nowhere, and it is removed.
+- `schemas/core/universe-state.schema.json` has an optional `provenance` map beside the four value maps. Its keys are full targets, a collection name and then the dotted key, in the spelling a mutation's `target` uses. Each value has exactly two fields, `kind` and `recorded_at`. There is no confidence number and no free text. `provenance` is not required, so a UniverseState with none stays valid.
+- `schemas/core/precondition.schema.json` has four numeric comparisons: `at_least`, `at_most`, `greater_than` and `less_than`. Each requires a `numeric_values` target and a number as `expected`.
+
+The four provenance kinds are spelled out in two schemas, the mutation and the UniverseState. A change to one is a change to both.
+
 ## Authority Source
 
 `AuthoritySource` is a closed enum in `schemas/common/authority-source.schema.json`:

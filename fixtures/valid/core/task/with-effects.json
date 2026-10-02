@@ -13,8 +13,7 @@
       {
         "operation": "increment_numeric",
         "target": "numeric_values.task.write_validation_cli.progress",
-        "payload": 1.0,
-        "note": "Advance progress to fully done on success."
+        "payload": 1.0
       },
       {
         "operation": "clear_fact",

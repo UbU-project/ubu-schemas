@@ -1,0 +1,28 @@
+{
+  "all_of": [
+    {
+      "target": "numeric_values.greenhouse.bench.seed_trays",
+      "predicate": "at_least",
+      "expected": 6
+    },
+    {
+      "target": "numeric_values.greenhouse.bench.seed_trays",
+      "predicate": "at_most",
+      "expected": 24
+    },
+    {
+      "any_of": [
+        {
+          "target": "numeric_values.greenhouse.vent.opening_degrees",
+          "predicate": "greater_than",
+          "expected": 10.5
+        },
+        {
+          "target": "numeric_values.greenhouse.vent.opening_degrees",
+          "predicate": "less_than",
+          "expected": -1
+        }
+      ]
+    }
+  ]
+}

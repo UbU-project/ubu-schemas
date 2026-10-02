@@ -3,7 +3,7 @@
   "$id": "https://schemas.ubunow.net/phase1/core/universe-state-mutation.schema.json",
   "title": "Universe State Mutation",
   "type": "object",
-  "description": "Single UniverseState mutation item. Per-operation payload typing is enforced in ubu-core.",
+  "description": "Single UniverseState mutation item. This schema types the payload of set_numeric and refuses a payload or a provenance kind on the two clears; every other per-operation payload rule is enforced in ubu-core.",
   "additionalProperties": false,
   "properties": {
     "operation": {
@@ -11,6 +11,8 @@
       "enum": [
         "set_fact",
         "clear_fact",
+        "set_numeric",
+        "clear_numeric",
         "increment_numeric",
         "decrement_numeric",
         "add_membership",
@@ -24,11 +26,17 @@
       "pattern": "^(facts|numeric_values|set_memberships|event_markers)\\.[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*$"
     },
     "payload": {
-      "description": "Mutation payload. Required for every operation except clear_fact."
+      "description": "Mutation payload. Required for every operation except clear_fact and clear_numeric, which take none."
     },
-    "note": {
+    "provenance_kind": {
       "type": "string",
-      "minLength": 1
+      "description": "How the value this mutation writes was established. Absent means asserted: a mutation with no stated evidence is someone's word. The same four values as the kind of a UniverseState provenance entry.",
+      "enum": [
+        "asserted",
+        "measured",
+        "derived",
+        "proposed"
+      ]
     }
   },
   "required": ["operation", "target"],
@@ -38,7 +46,10 @@
         "properties": {
           "operation": {
             "not": {
-              "const": "clear_fact"
+              "enum": [
+                "clear_fact",
+                "clear_numeric"
+              ]
             }
           }
         },
@@ -46,6 +57,48 @@
       },
       "then": {
         "required": ["payload"]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "enum": [
+              "clear_fact",
+              "clear_numeric"
+            ]
+          }
+        },
+        "required": ["operation"]
+      },
+      "then": {
+        "not": {
+          "anyOf": [
+            {
+              "required": ["payload"]
+            },
+            {
+              "required": ["provenance_kind"]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "set_numeric"
+          }
+        },
+        "required": ["operation"]
+      },
+      "then": {
+        "properties": {
+          "payload": {
+            "type": "number"
+          }
+        }
       }
     }
   ]

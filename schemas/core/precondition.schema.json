@@ -26,10 +26,18 @@
     },
     "predicate": {
       "type": "string",
-      "enum": ["equals", "member_of", "absent"]
+      "enum": [
+        "equals",
+        "member_of",
+        "absent",
+        "at_least",
+        "at_most",
+        "greater_than",
+        "less_than"
+      ]
     },
     "expected": {
-      "description": "Expected JSON value for predicates that compare against a value."
+      "description": "Expected JSON value for predicates that compare against a value. The four numeric comparisons require a number."
     }
   },
   "anyOf": [
@@ -41,6 +49,34 @@
     },
     {
       "required": ["target", "predicate"]
+    }
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "predicate": {
+            "enum": [
+              "at_least",
+              "at_most",
+              "greater_than",
+              "less_than"
+            ]
+          }
+        },
+        "required": ["predicate"]
+      },
+      "then": {
+        "required": ["expected"],
+        "properties": {
+          "target": {
+            "pattern": "^numeric_values\\."
+          },
+          "expected": {
+            "type": "number"
+          }
+        }
+      }
     }
   ]
 }

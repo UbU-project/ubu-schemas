@@ -1,0 +1,5 @@
+{
+  "operation": "clear_fact",
+  "target": "facts.greenhouse.vent.propped",
+  "payload": false
+}

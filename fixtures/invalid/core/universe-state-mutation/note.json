@@ -1,0 +1,6 @@
+{
+  "operation": "set_fact",
+  "target": "facts.greenhouse.vent.propped",
+  "payload": true,
+  "note": "A note has nowhere to go and is no longer a field."
+}

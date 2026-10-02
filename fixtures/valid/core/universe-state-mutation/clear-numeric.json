@@ -1,0 +1,4 @@
+{
+  "operation": "clear_numeric",
+  "target": "numeric_values.greenhouse.bench.seed_trays"
+}

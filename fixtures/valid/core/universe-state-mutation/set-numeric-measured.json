@@ -1,0 +1,6 @@
+{
+  "operation": "set_numeric",
+  "target": "numeric_values.greenhouse.vent.opening_degrees",
+  "payload": 37.5,
+  "provenance_kind": "measured"
+}

@@ -1,0 +1,5 @@
+{
+  "target": "numeric_values.greenhouse.bench.seed_trays",
+  "predicate": "at_least",
+  "expected": "six"
+}
