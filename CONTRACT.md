@@ -72,6 +72,12 @@ Planning request, planning response, repair request, and repair response envelop
 
 Phase 1 schemas are pre-1.0 and intentionally use `additionalProperties: false` for object contracts where appropriate. This creates lockstep with hand-written `ubu-core` serde types so schema drift fails early in CI and fixture review.
 
+This lockstep claim holds only for types covered by a whole-fixture round trip.
+UniverseState had no such round trip until P1B-60; its source and confidence
+summaries were declared as objects here while the implementation wrote strings.
+`source_summary` is now a required non-empty string; `confidence_summary` is an
+optional nullable string. Structured per-fact metadata stays in `fact_provenance`.
+
 TODO: revisit this coupling at 1.0 and decide whether selected extension points should allow additional properties.
 
 ## Vocabulary

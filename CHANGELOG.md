@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- P1B-60 A: Correct UniverseState summaries: required non-empty `source_summary` and optional nullable `confidence_summary` are strings. The schema had declared both as objects while every implementation wrote strings. Canonical fixtures, object-valued refusal fixtures and a whole-state round-trip fixture expose the contract to compatibility tests.
+
 - P1B-59 A: A measured number is a first-class fact.
   - `core/universe-state-mutation` gains `set_numeric` and `clear_numeric`. `payload` is required for every operation except `clear_fact` and `clear_numeric`, which now refuse one. The payload of `set_numeric` must be a number.
   - `core/universe-state-mutation` gains optional `provenance_kind` (`asserted`, `measured`, `derived`, `proposed`), refused on the two clears. **`note` is removed**: it was accepted and stored nowhere. A mutation that carries `note` is now invalid.

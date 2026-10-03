@@ -14,7 +14,11 @@
     "planning.capacity.available_minutes": 90
   },
   "set_memberships": {
-    "task.write_validation_cli.labels": ["schemas", "validation", "phase1"],
+    "task.write_validation_cli.labels": [
+      "schemas",
+      "validation",
+      "phase1"
+    ],
     "objective.phase1_schema_scaffold.blockers": []
   },
   "event_markers": {
@@ -30,12 +34,6 @@
       }
     ]
   },
-  "source_summary": {
-    "source_kinds": ["user", "system"],
-    "captured_by": "bootstrap"
-  },
-  "confidence_summary": {
-    "overall": 0.82,
-    "notes": ["derived from recent accepted inputs"]
-  }
+  "source_summary": "Synthetic accepted inputs for the fixture state",
+  "confidence_summary": "Synthetic confidence summary from accepted inputs"
 }

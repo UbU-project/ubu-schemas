@@ -40,10 +40,5 @@
       "recorded_at": "2026-06-22T14:34:00.250Z"
     }
   },
-  "source_summary": {
-    "source_kinds": [
-      "user"
-    ],
-    "captured_by": "synthetic fixture"
-  }
+  "source_summary": "Synthetic accepted inputs for the fixture state"
 }

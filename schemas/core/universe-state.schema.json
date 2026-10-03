@@ -42,7 +42,12 @@
       "additionalProperties": {
         "type": "array",
         "items": {
-          "type": ["string", "number", "boolean", "null"]
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
         }
       }
     },
@@ -87,19 +92,30 @@
             "$ref": "https://schemas.ubunow.net/phase1/common/timestamp.schema.json"
           }
         },
-        "required": ["kind", "recorded_at"]
+        "required": [
+          "kind",
+          "recorded_at"
+        ]
       }
     },
     "source_summary": {
-      "type": "object",
-      "description": "Loosely typed summary of sources that informed this UniverseState.",
-      "additionalProperties": true
+      "type": "string",
+      "minLength": 1
     },
     "confidence_summary": {
-      "type": "object",
-      "description": "Optional loosely typed confidence summary for the container.",
-      "additionalProperties": true
+      "type": [
+        "string",
+        "null"
+      ]
     }
   },
-  "required": ["id", "captured_at", "facts", "numeric_values", "set_memberships", "event_markers", "source_summary"]
+  "required": [
+    "id",
+    "captured_at",
+    "facts",
+    "numeric_values",
+    "set_memberships",
+    "event_markers",
+    "source_summary"
+  ]
 }
