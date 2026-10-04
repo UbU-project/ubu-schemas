@@ -13,7 +13,7 @@
       "type": "array",
       "uniqueItems": true,
       "items": { "oneOf": [
-        { "type": "object", "additionalProperties": false, "properties": { "propose_candidate": { "type": "string", "enum": ["tag", "dependency", "preference", "decomposition", "clarification_question"] } }, "required": ["propose_candidate"] },
+        { "type": "object", "additionalProperties": false, "properties": { "propose_candidate": { "type": "string", "enum": ["tag", "dependency", "preference", "decomposition", "clarification_question", "precondition"] } }, "required": ["propose_candidate"] },
         { "const": "emit_diagnostics" },
         { "const": "emit_telemetry" }
       ]}

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- P1B-61 A: Add `precondition` to both candidate-kind enums, constrain its normalized proposal to a canonical tree or an explicit existing/proposed tree pair, and add synthetic valid/invalid fixtures.
+
 - P1B-60 A: Correct UniverseState summaries: required non-empty `source_summary` and optional nullable `confidence_summary` are strings. The schema had declared both as objects while every implementation wrote strings. Canonical fixtures, object-valued refusal fixtures and a whole-state round-trip fixture expose the contract to compatibility tests.
 
 - P1B-59 A: A measured number is a first-class fact.

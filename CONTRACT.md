@@ -85,3 +85,13 @@ TODO: revisit this coupling at 1.0 and decide whether selected extension points 
 Policy-engine output uses `legitimization` and `adjudication`. The engine is the `Legitimizer`; the interception point is the `enforcement gate`.
 
 `Decision` is reserved for UBU-D records and must not be used in schema titles or field names in this repository.
+
+## Advisory candidate kinds
+
+P1B-61 adds `precondition` to both literal candidate-kind enums: the candidate
+and worker authority. A precondition candidate’s `normalized_proposal` is a
+precondition tree, or a replacement object containing `existing_precondition`
+and `proposed_precondition`, each validated by the canonical precondition schema.
+The existing tree records what explicit admission would replace; it is not an
+admitted Task or a UniverseState mutation. Suppression records reference the
+candidate definition and inherit the kind.

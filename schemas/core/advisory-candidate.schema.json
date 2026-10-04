@@ -141,7 +141,8 @@
         "dependency",
         "preference",
         "decomposition",
-        "clarification_question"
+        "clarification_question",
+        "precondition"
       ]
     },
     "resurface_trigger": {
@@ -324,6 +325,45 @@
                 "minLength": 1
               }
             }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "candidate_kind": {
+            "const": "precondition"
+          }
+        },
+        "required": [
+          "candidate_kind"
+        ]
+      },
+      "then": {
+        "properties": {
+          "normalized_proposal": {
+            "oneOf": [
+              {
+                "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "existing_precondition": {
+                    "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
+                  },
+                  "proposed_precondition": {
+                    "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
+                  }
+                },
+                "required": [
+                  "existing_precondition",
+                  "proposed_precondition"
+                ]
+              }
+            ]
           }
         }
       }
