@@ -362,6 +362,70 @@
                   "existing_precondition",
                   "proposed_precondition"
                 ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "operation": {
+                    "const": "replace_precondition"
+                  },
+                  "verdict": {
+                    "const": "replace"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "existing_precondition": {
+                    "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
+                  },
+                  "blocked_now": {
+                    "type": "boolean"
+                  },
+                  "proposed_precondition": {
+                    "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
+                  }
+                },
+                "required": [
+                  "operation",
+                  "verdict",
+                  "reason",
+                  "existing_precondition",
+                  "blocked_now",
+                  "proposed_precondition"
+                ]
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "operation": {
+                    "const": "clear_precondition"
+                  },
+                  "verdict": {
+                    "const": "remove"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "existing_precondition": {
+                    "$ref": "https://schemas.ubunow.net/phase1/core/precondition.schema.json"
+                  },
+                  "blocked_now": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "operation",
+                  "verdict",
+                  "reason",
+                  "existing_precondition",
+                  "blocked_now"
+                ]
               }
             ]
           }

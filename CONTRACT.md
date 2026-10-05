@@ -92,6 +92,10 @@ P1B-61 adds `precondition` to both literal candidate-kind enums: the candidate
 and worker authority. A precondition candidate’s `normalized_proposal` is a
 precondition tree, or a replacement object containing `existing_precondition`
 and `proposed_precondition`, each validated by the canonical precondition schema.
+P1B-62 additionally permits explicit `replace_precondition` / `clear_precondition`
+review operations, with the matching `replace` / `remove` verdict, a nonblank
+model reason, the existing tree and a `blocked_now` boolean. Replacement requires
+a proposed tree; removal forbids one. These envelopes preserve both prior forms.
 The existing tree records what explicit admission would replace; it is not an
 admitted Task or a UniverseState mutation. Suppression records reference the
 candidate definition and inherit the kind.
