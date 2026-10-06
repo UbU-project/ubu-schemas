@@ -62,3 +62,8 @@
 - S7a (`UBU-D0230`): Added closed policy-summary guardrail members `local_only`, `no_cloud_llm`, and `no_external_export`.
 - S7b (`UBU-D0230`): Added `compartment_boundary_decided` log event vocabulary and required payload provenance.
 - S8 (`UBU-D0226`): Kept `AuthoritySource` as the pure authority-path enum and moved external/source distinctions into provenance `source` and `source_refs`.
+
+## P1B-67
+
+Add universe_target to candidate and worker-authority enums, with two valid
+and three invalid invented fixtures for its name-only proposal contract.

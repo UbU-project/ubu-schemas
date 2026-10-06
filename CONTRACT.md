@@ -99,3 +99,12 @@ a proposed tree; removal forbids one. These envelopes preserve both prior forms.
 The existing tree records what explicit admission would replace; it is not an
 admitted Task or a UniverseState mutation. Suppression records reference the
 candidate definition and inherit the kind.
+
+P1B-67 adds `universe_target` to both enums. Its operation is
+`record_universe_target`, with exactly a target name and no proposed fact value.
+Only facts and numeric_values targets are in scope. Canonical fixtures check
+grammar, length and reserved first key segments; the executable producer also
+checks them per proposal and checks non-existence against current state.
+The Task reference is evidence, while admission writes UniverseState using an
+operator-supplied value. Payload.value is the name-only proposal envelope,
+never a proposed observation.

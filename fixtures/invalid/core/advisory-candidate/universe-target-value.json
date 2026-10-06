@@ -1,0 +1,58 @@
+{
+  "advisory_candidate_id": "advcand_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+  "schema_version": "1.0",
+  "candidate_kind": "universe_target",
+  "lifecycle_state": "proposed",
+  "version": 1,
+  "target_refs": [
+    {
+      "id": "task_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+      "object_type": "Task"
+    }
+  ],
+  "normalized_proposal": {
+    "operation": "record_universe_target",
+    "target": "facts.synthetic.ready",
+    "value": true
+  },
+  "payload": {
+    "kind": "inline",
+    "value": {
+      "operation": "record_universe_target",
+      "target": "facts.synthetic.ready",
+      "value": true
+    }
+  },
+  "evidence_refs": [
+    "synthetic:title"
+  ],
+  "confidence": 0.8,
+  "field_provenance": {
+    "target": "synthetic-vocabulary-advisor"
+  },
+  "proposed_at": "2026-09-19T09:00:00Z",
+  "effective_time": "2026-09-19T09:00:00Z",
+  "proposing_actor": {
+    "model_or_tool_name": "synthetic-precondition-advisor",
+    "version": "1.0",
+    "prompt_template_digest": "sha256:7fd123"
+  },
+  "origin_device_id": "dev_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f",
+  "execution_context": {
+    "context_label": "advisory",
+    "backend_id": "local",
+    "provider_id": "local"
+  },
+  "idempotency_key": "synthetic-universe-target-value",
+  "compartment_ids": [
+    "comp_018f3c8e9b2a7c4d8f1e2a3b4c5d6e7f"
+  ],
+  "review_label": {
+    "kind": "label",
+    "value": "Personal"
+  },
+  "disclosure_policy": "compartment_only",
+  "retention_policy": "retain",
+  "review_order": 1,
+  "links": {}
+}
