@@ -1,0 +1,10 @@
+{
+  "backend_kind": "gpu_worker",
+  "invocation_kind": "persistent_python_worker",
+  "engine_version": "synthetic-engine-1",
+  "cpu_certification_status": "certified",
+  "framework": "pytorch",
+  "framework_version": "synthetic-framework",
+  "device_summary": "synthetic-device",
+  "tolerance_profile": "boundary-v1"
+}

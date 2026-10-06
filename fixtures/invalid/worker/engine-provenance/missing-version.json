@@ -1,0 +1,5 @@
+{
+  "backend_kind": "cpu_reference",
+  "invocation_kind": "in_process_cpu",
+  "cpu_certification_status": "certified"
+}

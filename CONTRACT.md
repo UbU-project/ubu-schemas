@@ -108,3 +108,17 @@ checks them per proposal and checks non-existence against current state.
 The Task reference is evidence, while admission writes UniverseState using an
 operator-supplied value. Payload.value is the name-only proposal envelope,
 never a proposed observation.
+
+
+## P1B-70 worker boundary
+
+PlanningStreamFrame has the four canonical response outcomes, common request
+identity and increasing frame indices. Its payload stays an opaque object here;
+the kernel composes the typed response and validates its approved legacy profile.
+The sequence schema uses x-ubu-frame-sequence, following the existing custom
+order vocabulary, to enforce request identity, zero-based increasing indices
+and exactly one terminal frame at the end. EngineProvenance has the design
+field set and closed enums; gpu_worker requires framework pytorch. The actual
+implementation version remains planning-kernel-contract/0.1 without a bump;
+0.2 and the other design conformance gaps remain explicitly deferred. The
+advice-shaped capacity/recommendation envelopes are retired.

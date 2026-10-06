@@ -1,0 +1,11 @@
+[
+  {
+    "schema_version": "planning-kernel-contract/0.1",
+    "request_id": "synthetic-frame",
+    "frame_index": 0,
+    "frame_type": "final_response",
+    "response": {
+      "request_id": "synthetic-frame"
+    }
+  }
+]

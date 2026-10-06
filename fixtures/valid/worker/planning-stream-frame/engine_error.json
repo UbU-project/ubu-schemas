@@ -1,0 +1,7 @@
+{
+  "schema_version": "planning-kernel-contract/0.1",
+  "request_id": "synthetic-frame",
+  "frame_index": 0,
+  "frame_type": "engine_error",
+  "error": "synthetic worker failure"
+}

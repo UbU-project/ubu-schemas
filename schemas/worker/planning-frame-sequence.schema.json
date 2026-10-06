@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/worker/planning-frame-sequence.schema.json",
+  "title": "Planning Frame Sequence",
+  "type": "array",
+  "description": "Planning Frame Sequence for the approved legacy planning-kernel-contract/0.1 invocation profile.",
+  "minItems": 1,
+  "items": {
+    "$ref": "https://schemas.ubunow.net/phase1/worker/planning-stream-frame.schema.json"
+  },
+  "x-ubu-frame-sequence": true
+}

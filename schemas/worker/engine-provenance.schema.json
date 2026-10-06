@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.ubunow.net/phase1/worker/engine-provenance.schema.json",
+  "title": "Engine Provenance",
+  "type": "object",
+  "description": "Engine Provenance for the approved legacy planning-kernel-contract/0.1 invocation profile.",
+  "additionalProperties": false,
+  "properties": {
+    "backend_kind": {
+      "enum": [
+        "cpu_reference",
+        "gpu_worker",
+        "mobile_cpu",
+        "mobile_gpu"
+      ]
+    },
+    "invocation_kind": {
+      "enum": [
+        "in_process_cpu",
+        "persistent_python_worker",
+        "in_process_mobile"
+      ]
+    },
+    "engine_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "framework": {
+      "type": "string",
+      "minLength": 1
+    },
+    "framework_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "device_summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tolerance_profile": {
+      "type": "string",
+      "minLength": 1
+    },
+    "cpu_certification_status": {
+      "enum": [
+        "not_yet_certified",
+        "certified",
+        "rejected_by_cpu"
+      ]
+    }
+  },
+  "required": [
+    "backend_kind",
+    "invocation_kind",
+    "engine_version",
+    "cpu_certification_status"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "backend_kind": {
+            "const": "gpu_worker"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "framework"
+        ],
+        "properties": {
+          "framework": {
+            "const": "pytorch"
+          }
+        }
+      }
+    }
+  ]
+}

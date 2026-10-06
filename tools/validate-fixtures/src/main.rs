@@ -8,6 +8,44 @@ use serde_json::Value;
 use std::collections::HashSet;
 use walkdir::WalkDir;
 
+struct FrameSequence;
+impl Keyword for FrameSequence {
+    fn validate<'i>(&self, instance: &'i Value) -> Result<(), ValidationError<'i>> {
+        if self.is_valid(instance) {
+            Ok(())
+        } else {
+            Err(ValidationError::custom("frames require one request, index zero then increasing indices, and one terminal outcome at the end"))
+        }
+    }
+    fn is_valid(&self, instance: &Value) -> bool {
+        let Some(items) = instance.as_array() else {
+            return false;
+        };
+        if items.is_empty() || items[0]["frame_index"] != 0 {
+            return false;
+        }
+        let id = &items[0]["request_id"];
+        if items.iter().any(|f| &f["request_id"] != id) {
+            return false;
+        }
+        if !items.windows(2).all(|p| {
+            p[0]["frame_index"]
+                .as_u64()
+                .zip(p[1]["frame_index"].as_u64())
+                .is_some_and(|(a, b)| a < b)
+        }) {
+            return false;
+        }
+        let terminal = |f: &Value| {
+            matches!(
+                f["frame_type"].as_str(),
+                Some("final_response" | "engine_error" | "cancelled")
+            )
+        };
+        terminal(items.last().unwrap()) && !items[..items.len() - 1].iter().any(terminal)
+    }
+}
+
 #[derive(Clone, Debug)]
 struct InMemoryRetriever {
     schemas: HashMap<String, Value>,
@@ -191,6 +229,12 @@ fn validate_fixture_tree(
         let validator = jsonschema::draft202012::options()
             .with_retriever(retriever.clone())
             .should_validate_formats(true)
+            .with_keyword("x-ubu-frame-sequence", |_, value, _| {
+                if value != &Value::Bool(true) {
+                    return Err(ValidationError::custom("x-ubu-frame-sequence must be true"));
+                }
+                Ok(Box::new(FrameSequence))
+            })
             .with_keyword("x-ubu-strictly-increasing", |_, value, _| {
                 let properties = value
                     .as_array()

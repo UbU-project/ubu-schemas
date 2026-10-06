@@ -1,0 +1,6 @@
+{
+  "backend_kind": "cpu_reference",
+  "invocation_kind": "in_process_cpu",
+  "engine_version": "synthetic-engine-1",
+  "cpu_certification_status": "unknown"
+}
